@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Supply Chain
+  - AWS
+  - ERP Integration
   - Logistics
   - Machine Learning
-  - ERP Integration
-  - AWS
+  - Supply Chain
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/supply-chain/
     baseURL: https://scn.amazonaws.com
     tags:
-      - Supply Chain
       - Logistics
       - Machine Learning
+      - Supply Chain
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.html
