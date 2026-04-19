@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/json-schema/amazon-supply-chain-data-integration-event-schema.json",
+  "title": "DataIntegrationEvent",
+  "description": "A data integration event",
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string",
+      "description": "The instance identifier"
+    },
+    "eventId": {
+      "type": "string",
+      "description": "The event identifier"
+    },
+    "eventType": {
+      "type": "string",
+      "description": "The event type"
+    },
+    "eventGroupId": {
+      "type": "string",
+      "description": "The event group identifier"
+    },
+    "eventTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The event timestamp"
+    },
+    "data": {
+      "type": "string",
+      "description": "The event data payload"
+    }
+  }
+}

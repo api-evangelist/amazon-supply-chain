@@ -1,0 +1,10 @@
+{
+  "instanceId": "inst-abc12345",
+  "namespace": "MyResource",
+  "name": "MyResource",
+  "description": "example-value",
+  "schema": {},
+  "partitionSpec": {},
+  "createdTime": "2025-03-15T14:30:00Z",
+  "lastModifiedTime": "2025-03-15T14:30:00Z"
+}

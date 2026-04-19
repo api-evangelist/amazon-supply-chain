@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/json-schema/amazon-supply-chain-data-integration-flow-schema.json",
+  "title": "DataIntegrationFlow",
+  "description": "A data integration flow definition",
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string",
+      "description": "The instance identifier",
+      "example": "inst-abc12345"
+    },
+    "name": {
+      "type": "string",
+      "description": "The flow name",
+      "example": "MyIntegrationFlow"
+    },
+    "sources": {
+      "type": "array",
+      "description": "Data sources for the flow",
+      "items": {
+        "type": "object"
+      }
+    },
+    "transformation": {
+      "type": "object",
+      "description": "Data transformation configuration"
+    },
+    "target": {
+      "type": "object",
+      "description": "Data target configuration"
+    },
+    "createdTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "lastModifiedTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last modification timestamp"
+    }
+  }
+}

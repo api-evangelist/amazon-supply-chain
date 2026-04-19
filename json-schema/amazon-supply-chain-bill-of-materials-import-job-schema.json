@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/json-schema/amazon-supply-chain-bill-of-materials-import-job-schema.json",
+  "title": "BillOfMaterialsImportJob",
+  "description": "A bill of materials import job",
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string",
+      "description": "The instance identifier",
+      "example": "inst-abc12345"
+    },
+    "jobId": {
+      "type": "string",
+      "description": "The job identifier",
+      "example": "job-abc12345"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "New",
+        "Failed",
+        "InProgress",
+        "Queued",
+        "Success"
+      ],
+      "description": "The job status",
+      "example": "Success"
+    },
+    "s3uri": {
+      "type": "string",
+      "description": "The S3 URI of the import file",
+      "example": "s3://my-bucket/bom-data.csv"
+    },
+    "message": {
+      "type": "string",
+      "description": "Status message"
+    }
+  }
+}

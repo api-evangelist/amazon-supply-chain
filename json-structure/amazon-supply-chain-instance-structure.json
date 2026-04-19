@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/json-structure/amazon-supply-chain-instance-structure.json",
+  "name": "Instance",
+  "description": "An AWS Supply Chain instance",
+  "properties": {
+    "instanceId": {
+      "type": "string",
+      "description": "The unique identifier of the instance",
+      "example": "inst-abc12345"
+    },
+    "instanceName": {
+      "type": "string",
+      "description": "The name of the instance",
+      "example": "MySupplyChainInstance"
+    },
+    "instanceDescription": {
+      "type": "string",
+      "description": "The description of the instance",
+      "example": "Production supply chain instance"
+    },
+    "instanceState": {
+      "type": "string",
+      "enum": [
+        "Initializing",
+        "Active",
+        "CreateFailed",
+        "DeleteFailed",
+        "Deleting",
+        "Deleted"
+      ],
+      "description": "The state of the instance",
+      "example": "Active"
+    },
+    "kmsKeyArn": {
+      "type": "string",
+      "description": "The KMS key ARN used to encrypt instance data",
+      "example": "arn:aws:kms:us-east-1:123456789012:key/abc12345"
+    },
+    "webAppDnsDomain": {
+      "type": "string",
+      "description": "The DNS domain for the web application",
+      "example": "instance.scn.amazonaws.com"
+    },
+    "createdTime": {
+      "type": "datetime",
+      "description": "The creation timestamp",
+      "example": "2025-01-15T10:30:00Z"
+    },
+    "lastModifiedTime": {
+      "type": "datetime",
+      "description": "The last modification timestamp",
+      "example": "2025-03-01T08:00:00Z"
+    }
+  }
+}

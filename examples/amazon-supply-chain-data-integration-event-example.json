@@ -1,0 +1,8 @@
+{
+  "instanceId": "inst-abc12345",
+  "eventId": "example-value",
+  "eventType": "example-value",
+  "eventGroupId": "example-value",
+  "eventTimestamp": "2025-03-15T14:30:00Z",
+  "data": "example-value"
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/json-schema/amazon-supply-chain-data-lake-namespace-schema.json",
+  "title": "DataLakeNamespace",
+  "description": "A data lake namespace",
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string",
+      "description": "The instance identifier",
+      "example": "inst-abc12345"
+    },
+    "name": {
+      "type": "string",
+      "description": "The namespace name",
+      "example": "asc"
+    },
+    "description": {
+      "type": "string",
+      "description": "The namespace description"
+    },
+    "createdTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastModifiedTime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

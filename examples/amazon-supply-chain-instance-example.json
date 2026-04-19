@@ -1,0 +1,10 @@
+{
+  "instanceId": "inst-abc12345",
+  "instanceName": "inst-abc12345",
+  "instanceDescription": "inst-abc12345",
+  "instanceState": "Initializing",
+  "kmsKeyArn": "arn:aws:scn:us-east-1:123456789012:instance/inst-abc12345",
+  "webAppDnsDomain": "example-value",
+  "createdTime": "2025-03-15T14:30:00Z",
+  "lastModifiedTime": "2025-03-15T14:30:00Z"
+}

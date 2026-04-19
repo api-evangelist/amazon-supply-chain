@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/json-structure/amazon-supply-chain-data-integration-event-structure.json",
+  "name": "DataIntegrationEvent",
+  "description": "A data integration event",
+  "properties": {
+    "instanceId": {
+      "type": "string",
+      "description": "The instance identifier"
+    },
+    "eventId": {
+      "type": "string",
+      "description": "The event identifier"
+    },
+    "eventType": {
+      "type": "string",
+      "description": "The event type"
+    },
+    "eventGroupId": {
+      "type": "string",
+      "description": "The event group identifier"
+    },
+    "eventTimestamp": {
+      "type": "datetime",
+      "description": "The event timestamp"
+    },
+    "data": {
+      "type": "string",
+      "description": "The event data payload"
+    }
+  }
+}

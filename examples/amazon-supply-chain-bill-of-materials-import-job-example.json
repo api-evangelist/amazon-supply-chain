@@ -1,0 +1,7 @@
+{
+  "instanceId": "inst-abc12345",
+  "jobId": "job-abc12345",
+  "status": "New",
+  "s3uri": "s3://my-bucket/data.csv",
+  "message": "example-value"
+}

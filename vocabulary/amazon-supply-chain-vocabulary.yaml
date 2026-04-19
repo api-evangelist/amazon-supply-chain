@@ -1,0 +1,184 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon Supply Chain
+  description: Vocabulary for AWS Supply Chain covering instances, data integration flows, data lakes, bills of materials, and events.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: AWS Supply Chain API
+    namespace: amazon-supply-chain
+    version: '2024-01-01'
+    baseUrl: https://scn.amazonaws.com
+    status: active
+  resources:
+  - name: Instances
+    api: aws-supply-chain-api
+    actions:
+    - CreateInstance
+    - GetInstance
+    - ListInstances
+    - UpdateInstance
+    - DeleteInstance
+  - name: Data Integration Flows
+    api: aws-supply-chain-api
+    actions:
+    - CreateDataIntegrationFlow
+    - GetDataIntegrationFlow
+    - ListDataIntegrationFlows
+    - UpdateDataIntegrationFlow
+    - DeleteDataIntegrationFlow
+  - name: Data Lake Datasets
+    api: aws-supply-chain-api
+    actions:
+    - CreateDataLakeDataset
+    - GetDataLakeDataset
+    - ListDataLakeDatasets
+    - UpdateDataLakeDataset
+    - DeleteDataLakeDataset
+  - name: Data Lake Namespaces
+    api: aws-supply-chain-api
+    actions:
+    - CreateDataLakeNamespace
+    - GetDataLakeNamespace
+    - ListDataLakeNamespaces
+    - UpdateDataLakeNamespace
+    - DeleteDataLakeNamespace
+  - name: Bill of Materials
+    api: aws-supply-chain-api
+    actions:
+    - CreateBillOfMaterialsImportJob
+    - GetBillOfMaterialsImportJob
+  - name: Data Integration Events
+    api: aws-supply-chain-api
+    actions:
+    - SendDataIntegrationEvent
+    - ListDataIntegrationEvents
+    - GetDataIntegrationEvent
+  actions:
+  - name: create
+    httpMethod: POST
+    pattern: write
+  - name: get
+    httpMethod: GET
+    pattern: read
+  - name: list
+    httpMethod: GET
+    pattern: read
+  - name: update
+    httpMethod: PATCH
+    pattern: write
+  - name: delete
+    httpMethod: DELETE
+    pattern: destructive
+  - name: send
+    httpMethod: POST
+    pattern: write
+  schemas:
+    core:
+    - Instance
+    - DataIntegrationFlow
+    - DataLakeDataset
+    - DataLakeNamespace
+    - BillOfMaterialsImportJob
+    - DataIntegrationEvent
+  parameters:
+    pagination:
+    - nextToken
+    - maxResults
+    identifiers:
+    - instanceId
+    - name
+    - jobId
+    - namespace
+    filters:
+    - eventType
+    - instanceNameFilter
+    - instanceStateFilter
+  enums:
+    instance_state:
+    - Initializing
+    - Active
+    - CreateFailed
+    - DeleteFailed
+    - Deleting
+    - Deleted
+    job_status:
+    - New
+    - Failed
+    - InProgress
+    - Queued
+    - Success
+  authentication:
+    schemes:
+    - AWS Signature Version 4
+    headers:
+    - Authorization
+    - X-Amz-Date
+    - X-Amz-Security-Token
+capability:
+  workflows:
+  - name: Supply Chain Management
+    file: capabilities/shared/amazon-supply-chain.yaml
+    description: Manage supply chain instances, data flows, and data lakes
+    apis:
+    - AWS Supply Chain API
+    personas:
+    - Supply Chain Manager
+    - Data Engineer
+  personas:
+  - id: supply-chain-manager
+    name: Supply Chain Manager
+    description: Manager overseeing supply chain operations and risk visibility
+    workflows:
+    - Supply Chain Management
+  - id: data-engineer
+    name: Data Engineer
+    description: Engineer configuring data integration flows and data lakes
+    workflows:
+    - Supply Chain Management
+  domains:
+  - Supply Chain
+  - Logistics
+  - ERP Integration
+  - Machine Learning
+  - Data Lake
+  namespaces:
+  - name: amazon-supply-chain
+    type: consumed
+  - name: amazon-supply-chain-rest
+    type: rest
+    port: 8080
+  - name: amazon-supply-chain-mcp
+    type: mcp
+    port: 9090
+  binds:
+  - AWS_ACCESS_KEY_ID
+  - AWS_SECRET_ACCESS_KEY
+  - AWS_REGION
+crossReference:
+- resource: Instances
+  operations:
+  - CreateInstance
+  - GetInstance
+  - ListInstances
+  workflows:
+  - Supply Chain Management
+  personas:
+  - Supply Chain Manager
+- resource: Data Integration Flows
+  operations:
+  - CreateDataIntegrationFlow
+  - ListDataIntegrationFlows
+  workflows:
+  - Supply Chain Management
+  personas:
+  - Data Engineer
+- resource: Data Lake Datasets
+  operations:
+  - CreateDataLakeDataset
+  - ListDataLakeDatasets
+  workflows:
+  - Supply Chain Management
+  personas:
+  - Data Engineer

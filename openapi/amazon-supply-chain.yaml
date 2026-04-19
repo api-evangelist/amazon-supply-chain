@@ -1,0 +1,1099 @@
+openapi: 3.0.3
+info:
+  title: AWS Supply Chain API
+  description: >-
+    AWS Supply Chain is a cloud-based application that works with your existing
+    enterprise resource planning (ERP) and supply chain management systems to
+    help you manage supply chain risks. It provides ML-powered insights and
+    recommended actions to help mitigate supply chain disruptions.
+  version: '2024-01-01'
+  x-generated-from: documentation
+servers:
+  - url: https://scn.amazonaws.com
+    description: AWS Supply Chain API endpoint
+components:
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+  schemas:
+    Instance:
+      type: object
+      description: An AWS Supply Chain instance
+      properties:
+        instanceId:
+          type: string
+          description: The unique identifier of the instance
+          example: inst-abc12345
+        instanceName:
+          type: string
+          description: The name of the instance
+          example: MySupplyChainInstance
+        instanceDescription:
+          type: string
+          description: The description of the instance
+          example: Production supply chain instance
+        instanceState:
+          type: string
+          enum: [Initializing, Active, CreateFailed, DeleteFailed, Deleting, Deleted]
+          description: The state of the instance
+          example: Active
+        kmsKeyArn:
+          type: string
+          description: The KMS key ARN used to encrypt instance data
+          example: arn:aws:kms:us-east-1:123456789012:key/abc12345
+        webAppDnsDomain:
+          type: string
+          description: The DNS domain for the web application
+          example: instance.scn.amazonaws.com
+        createdTime:
+          type: string
+          format: date-time
+          description: The creation timestamp
+          example: '2025-01-15T10:30:00Z'
+        lastModifiedTime:
+          type: string
+          format: date-time
+          description: The last modification timestamp
+          example: '2025-03-01T08:00:00Z'
+    DataIntegrationFlow:
+      type: object
+      description: A data integration flow definition
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        name:
+          type: string
+          description: The flow name
+          example: MyIntegrationFlow
+        sources:
+          type: array
+          description: Data sources for the flow
+          items:
+            type: object
+        transformation:
+          type: object
+          description: Data transformation configuration
+        target:
+          type: object
+          description: Data target configuration
+        createdTime:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        lastModifiedTime:
+          type: string
+          format: date-time
+          description: Last modification timestamp
+    DataLakeDataset:
+      type: object
+      description: A data lake dataset
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        namespace:
+          type: string
+          description: The namespace containing the dataset
+          example: asc
+        name:
+          type: string
+          description: The dataset name
+          example: product
+        description:
+          type: string
+          description: The dataset description
+        schema:
+          type: object
+          description: The dataset schema
+        partitionSpec:
+          type: object
+          description: The partition specification
+        createdTime:
+          type: string
+          format: date-time
+        lastModifiedTime:
+          type: string
+          format: date-time
+    DataLakeNamespace:
+      type: object
+      description: A data lake namespace
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        name:
+          type: string
+          description: The namespace name
+          example: asc
+        description:
+          type: string
+          description: The namespace description
+        createdTime:
+          type: string
+          format: date-time
+        lastModifiedTime:
+          type: string
+          format: date-time
+    BillOfMaterialsImportJob:
+      type: object
+      description: A bill of materials import job
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        jobId:
+          type: string
+          description: The job identifier
+          example: job-abc12345
+        status:
+          type: string
+          enum: [New, Failed, InProgress, Queued, Success]
+          description: The job status
+          example: Success
+        s3uri:
+          type: string
+          description: The S3 URI of the import file
+          example: s3://my-bucket/bom-data.csv
+        message:
+          type: string
+          description: Status message
+    DataIntegrationEvent:
+      type: object
+      description: A data integration event
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+        eventId:
+          type: string
+          description: The event identifier
+        eventType:
+          type: string
+          description: The event type
+        eventGroupId:
+          type: string
+          description: The event group identifier
+        eventTimestamp:
+          type: string
+          format: date-time
+          description: The event timestamp
+        data:
+          type: string
+          description: The event data payload
+    TagMap:
+      type: object
+      description: A map of tags
+      additionalProperties:
+        type: string
+security:
+  - hmac: []
+paths:
+  /api/instances:
+    get:
+      operationId: ListInstances
+      summary: Amazon List Instances
+      description: Lists AWS Supply Chain instances in your account
+      tags:
+        - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+          description: Maximum number of results to return
+          example: 50
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+          description: Pagination token for next page of results
+        - name: instanceNameFilter
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          description: Filter by instance names
+        - name: instanceStateFilter
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          description: Filter by instance states
+      responses:
+        '200':
+          description: Successful response with list of instances
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instances:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Instance'
+                  nextToken:
+                    type: string
+              examples:
+                ListInstances200Example:
+                  summary: Default ListInstances 200 response
+                  x-microcks-default: true
+                  value:
+                    instances:
+                      - instanceId: inst-abc12345
+                        instanceName: MySupplyChainInstance
+                        instanceState: Active
+                    nextToken: null
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+    post:
+      operationId: CreateInstance
+      summary: Amazon Create Instance
+      description: Creates a new AWS Supply Chain instance
+      tags:
+        - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instanceName:
+                  type: string
+                  description: Name for the new instance
+                instanceDescription:
+                  type: string
+                  description: Description for the new instance
+                kmsKeyArn:
+                  type: string
+                  description: KMS key ARN for encryption
+                tags:
+                  $ref: '#/components/schemas/TagMap'
+            examples:
+              CreateInstanceRequestExample:
+                summary: Default CreateInstance request
+                x-microcks-default: true
+                value:
+                  instanceName: MySupplyChainInstance
+                  instanceDescription: Production supply chain management instance
+      responses:
+        '200':
+          description: Instance created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/Instance'
+              examples:
+                CreateInstance200Example:
+                  summary: Default CreateInstance 200 response
+                  x-microcks-default: true
+                  value:
+                    instance:
+                      instanceId: inst-abc12345
+                      instanceName: MySupplyChainInstance
+                      instanceState: Initializing
+        '400':
+          description: Bad request
+        '409':
+          description: Conflict - instance already exists
+        '500':
+          description: Internal server error
+  /api/instances/{instanceId}:
+    get:
+      operationId: GetInstance
+      summary: Amazon Get Instance
+      description: Gets details of an AWS Supply Chain instance
+      tags:
+        - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The instance identifier
+          example: inst-abc12345
+      responses:
+        '200':
+          description: Instance details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/Instance'
+              examples:
+                GetInstance200Example:
+                  summary: Default GetInstance 200 response
+                  x-microcks-default: true
+                  value:
+                    instance:
+                      instanceId: inst-abc12345
+                      instanceName: MySupplyChainInstance
+                      instanceState: Active
+        '404':
+          description: Instance not found
+    patch:
+      operationId: UpdateInstance
+      summary: Amazon Update Instance
+      description: Updates an AWS Supply Chain instance
+      tags:
+        - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The instance identifier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instanceName:
+                  type: string
+                instanceDescription:
+                  type: string
+      responses:
+        '200':
+          description: Instance updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/Instance'
+    delete:
+      operationId: DeleteInstance
+      summary: Amazon Delete Instance
+      description: Deletes an AWS Supply Chain instance
+      tags:
+        - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The instance identifier
+      responses:
+        '200':
+          description: Instance deletion initiated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/Instance'
+  /api/instances/{instanceId}/data-integration-flows:
+    get:
+      operationId: ListDataIntegrationFlows
+      summary: Amazon List Data Integration Flows
+      description: Lists data integration flows for an instance
+      tags:
+        - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The instance identifier
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+          description: Maximum results per page
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+          description: Pagination token
+      responses:
+        '200':
+          description: List of data integration flows
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  flows:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataIntegrationFlow'
+                  nextToken:
+                    type: string
+    put:
+      operationId: CreateDataIntegrationFlow
+      summary: Amazon Create Data Integration Flow
+      description: Creates a data integration flow
+      tags:
+        - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The instance identifier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                sources:
+                  type: array
+                  items:
+                    type: object
+                transformation:
+                  type: object
+                target:
+                  type: object
+                tags:
+                  $ref: '#/components/schemas/TagMap'
+      responses:
+        '200':
+          description: Flow created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  flow:
+                    $ref: '#/components/schemas/DataIntegrationFlow'
+  /api/instances/{instanceId}/data-integration-flows/{name}:
+    get:
+      operationId: GetDataIntegrationFlow
+      summary: Amazon Get Data Integration Flow
+      description: Gets details of a data integration flow
+      tags:
+        - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The instance identifier
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The flow name
+      responses:
+        '200':
+          description: Flow details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  flow:
+                    $ref: '#/components/schemas/DataIntegrationFlow'
+    patch:
+      operationId: UpdateDataIntegrationFlow
+      summary: Amazon Update Data Integration Flow
+      description: Updates a data integration flow
+      tags:
+        - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Flow updated
+    delete:
+      operationId: DeleteDataIntegrationFlow
+      summary: Amazon Delete Data Integration Flow
+      description: Deletes a data integration flow
+      tags:
+        - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Flow deleted
+  /api/instances/{instanceId}/namespaces/{namespace}/datasets:
+    get:
+      operationId: ListDataLakeDatasets
+      summary: Amazon List Data Lake Datasets
+      description: Lists data lake datasets in a namespace
+      tags:
+        - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The instance identifier
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The namespace name
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of datasets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  datasets:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataLakeDataset'
+                  nextToken:
+                    type: string
+    put:
+      operationId: CreateDataLakeDataset
+      summary: Amazon Create Data Lake Dataset
+      description: Creates a data lake dataset
+      tags:
+        - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                schema:
+                  type: object
+      responses:
+        '200':
+          description: Dataset created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dataset:
+                    $ref: '#/components/schemas/DataLakeDataset'
+  /api/instances/{instanceId}/namespaces/{namespace}/datasets/{name}:
+    get:
+      operationId: GetDataLakeDataset
+      summary: Amazon Get Data Lake Dataset
+      description: Gets details of a data lake dataset
+      tags:
+        - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Dataset details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dataset:
+                    $ref: '#/components/schemas/DataLakeDataset'
+    patch:
+      operationId: UpdateDataLakeDataset
+      summary: Amazon Update Data Lake Dataset
+      description: Updates a data lake dataset
+      tags:
+        - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Dataset updated
+    delete:
+      operationId: DeleteDataLakeDataset
+      summary: Amazon Delete Data Lake Dataset
+      description: Deletes a data lake dataset
+      tags:
+        - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Dataset deleted
+  /api/instances/{instanceId}/namespaces:
+    get:
+      operationId: ListDataLakeNamespaces
+      summary: Amazon List Data Lake Namespaces
+      description: Lists data lake namespaces for an instance
+      tags:
+        - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of namespaces
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  namespaces:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataLakeNamespace'
+                  nextToken:
+                    type: string
+    put:
+      operationId: CreateDataLakeNamespace
+      summary: Amazon Create Data Lake Namespace
+      description: Creates a data lake namespace
+      tags:
+        - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Namespace created
+  /api/instances/{instanceId}/bill-of-materials-import-jobs:
+    post:
+      operationId: CreateBillOfMaterialsImportJob
+      summary: Amazon Create Bill of Materials Import Job
+      description: Creates a bill of materials import job from an S3 file
+      tags:
+        - Bill of Materials
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The instance identifier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - s3uri
+              properties:
+                s3uri:
+                  type: string
+                  description: The S3 URI of the BOM import file
+                  example: s3://my-bucket/bom-data.csv
+                clientToken:
+                  type: string
+                  description: Idempotency token
+      responses:
+        '200':
+          description: Import job created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job:
+                    $ref: '#/components/schemas/BillOfMaterialsImportJob'
+  /api/instances/{instanceId}/bill-of-materials-import-jobs/{jobId}:
+    get:
+      operationId: GetBillOfMaterialsImportJob
+      summary: Amazon Get Bill of Materials Import Job
+      description: Gets status of a bill of materials import job
+      tags:
+        - Bill of Materials
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The job identifier
+      responses:
+        '200':
+          description: Import job details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job:
+                    $ref: '#/components/schemas/BillOfMaterialsImportJob'
+  /api/instances/{instanceId}/data-integration-events:
+    get:
+      operationId: ListDataIntegrationEvents
+      summary: Amazon List Data Integration Events
+      description: Lists data integration events for an instance
+      tags:
+        - Data Integration Events
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: eventType
+          in: query
+          schema:
+            type: string
+          description: Filter by event type
+        - name: maxResults
+          in: query
+          schema:
+            type: integer
+        - name: nextToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of events
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataIntegrationEvent'
+                  nextToken:
+                    type: string
+    post:
+      operationId: SendDataIntegrationEvent
+      summary: Amazon Send Data Integration Event
+      description: Sends a data integration event
+      tags:
+        - Data Integration Events
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - eventType
+                - data
+                - eventGroupId
+                - eventTimestamp
+              properties:
+                eventType:
+                  type: string
+                  description: The event type
+                data:
+                  type: string
+                  description: The event data payload
+                eventGroupId:
+                  type: string
+                  description: The event group identifier
+                eventTimestamp:
+                  type: string
+                  format: date-time
+                  description: The event timestamp
+                clientToken:
+                  type: string
+      responses:
+        '200':
+          description: Event sent
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  eventId:
+                    type: string
+  /api/instances/{instanceId}/tags:
+    get:
+      operationId: ListTagsForResource
+      summary: Amazon List Tags for Resource
+      description: Lists tags for an AWS Supply Chain resource
+      tags:
+        - Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Tags for the resource
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tags:
+                    $ref: '#/components/schemas/TagMap'
+    post:
+      operationId: TagResource
+      summary: Amazon Tag Resource
+      description: Adds tags to an AWS Supply Chain resource
+      tags:
+        - Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tags:
+                  $ref: '#/components/schemas/TagMap'
+      responses:
+        '200':
+          description: Tags added successfully
+    delete:
+      operationId: UntagResource
+      summary: Amazon Untag Resource
+      description: Removes tags from an AWS Supply Chain resource
+      tags:
+        - Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: tagKeys
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+          description: Tag keys to remove
+      responses:
+        '200':
+          description: Tags removed successfully

@@ -1,0 +1,109 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://amazonaws.com/schema/",
+    "schema": {
+      "@id": "aws:schema",
+      "@type": "@id"
+    },
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DataLakeDataset": "aws:DataLakeDataset",
+    "BillOfMaterialsImportJob": "aws:BillOfMaterialsImportJob",
+    "Instance": "aws:Instance",
+    "DataIntegrationEvent": "aws:DataIntegrationEvent",
+    "DataIntegrationFlow": "aws:DataIntegrationFlow",
+    "DataLakeNamespace": "aws:DataLakeNamespace",
+    "instanceId": {
+      "@id": "aws:instanceId",
+      "@type": "xsd:string"
+    },
+    "namespace": {
+      "@id": "aws:namespace",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "partitionSpec": {
+      "@id": "aws:partitionSpec",
+      "@type": "@id"
+    },
+    "createdTime": {
+      "@id": "aws:createdTime",
+      "@type": "xsd:dateTime"
+    },
+    "lastModifiedTime": {
+      "@id": "aws:lastModifiedTime",
+      "@type": "xsd:dateTime"
+    },
+    "jobId": {
+      "@id": "aws:jobId",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "aws:status",
+      "@type": "xsd:string"
+    },
+    "s3uri": {
+      "@id": "aws:s3uri",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "aws:message",
+      "@type": "xsd:string"
+    },
+    "instanceName": {
+      "@id": "aws:instanceName",
+      "@type": "xsd:string"
+    },
+    "instanceDescription": {
+      "@id": "aws:instanceDescription",
+      "@type": "xsd:string"
+    },
+    "instanceState": {
+      "@id": "aws:instanceState",
+      "@type": "xsd:string"
+    },
+    "kmsKeyArn": {
+      "@id": "aws:kmsKeyArn",
+      "@type": "xsd:string"
+    },
+    "webAppDnsDomain": {
+      "@id": "aws:webAppDnsDomain",
+      "@type": "xsd:string"
+    },
+    "eventId": {
+      "@id": "aws:eventId",
+      "@type": "xsd:string"
+    },
+    "eventType": {
+      "@id": "aws:eventType",
+      "@type": "xsd:string"
+    },
+    "eventGroupId": {
+      "@id": "aws:eventGroupId",
+      "@type": "xsd:string"
+    },
+    "eventTimestamp": {
+      "@id": "aws:eventTimestamp",
+      "@type": "xsd:dateTime"
+    },
+    "data": {
+      "@id": "aws:data",
+      "@type": "xsd:string"
+    },
+    "sources": {
+      "@id": "aws:sources",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "transformation": {
+      "@id": "aws:transformation",
+      "@type": "@id"
+    },
+    "target": {
+      "@id": "aws:target",
+      "@type": "@id"
+    }
+  }
+}

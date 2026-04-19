@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/json-schema/amazon-supply-chain-data-lake-dataset-schema.json",
+  "title": "DataLakeDataset",
+  "description": "A data lake dataset",
+  "type": "object",
+  "properties": {
+    "instanceId": {
+      "type": "string",
+      "description": "The instance identifier",
+      "example": "inst-abc12345"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "The namespace containing the dataset",
+      "example": "asc"
+    },
+    "name": {
+      "type": "string",
+      "description": "The dataset name",
+      "example": "product"
+    },
+    "description": {
+      "type": "string",
+      "description": "The dataset description"
+    },
+    "schema": {
+      "type": "object",
+      "description": "The dataset schema"
+    },
+    "partitionSpec": {
+      "type": "object",
+      "description": "The partition specification"
+    },
+    "createdTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastModifiedTime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
