@@ -1,10 +1,8 @@
 aid: amazon-supply-chain
 name: Amazon Supply Chain
-description: >-
-  AWS Supply Chain is a cloud-based application that works with your existing
-  enterprise resource planning (ERP) and supply chain management systems to
-  help you manage supply chain risks. It provides ML-powered insights and
-  recommended actions to help mitigate supply chain disruptions.
+description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP)
+  and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended
+  actions to help mitigate supply chain disruptions.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -13,18 +11,15 @@ tags:
 - Logistics
 - Machine Learning
 - Supply Chain
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-supply-chain:aws-supply-chain-api
   name: AWS Supply Chain API
-  description: >-
-    The AWS Supply Chain API provides programmatic access to create and
-    manage supply chain instances, data lakes, data integrations, and
-    bills of materials for supply chain visibility and risk management.
+  description: The AWS Supply Chain API provides programmatic access to create and manage supply chain instances, data lakes,
+    data integrations, and bills of materials for supply chain visibility and risk management.
   humanURL: https://aws.amazon.com/supply-chain/
   baseURL: https://scn.amazonaws.com
   tags:
@@ -42,6 +37,18 @@ apis:
     url: https://aws.amazon.com/supply-chain/pricing/
   - type: FAQ
     url: https://aws.amazon.com/supply-chain/faqs/
+  - type: NaftikoCapability
+    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-events.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-lake.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-supply-chain-instances.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-supply-chain-tags.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/supply-chain/
@@ -71,8 +78,6 @@ common:
   url: rules/amazon-supply-chain-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-supply-chain-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/shared/amazon-supply-chain.yaml
 - type: Features
   data:
   - name: ML-Powered Insights
@@ -112,14 +117,14 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/marketplace/
 integrations:
-  - name: Agent Mode
-  - name: Sign in
-  - name: Become a Channel Partner
-  - name: Resources
-  - name: Sell in AWS Marketplace
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Manage Your Account
+- name: Agent Mode
+- name: Sign in
+- name: Become a Channel Partner
+- name: Resources
+- name: Sell in AWS Marketplace
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

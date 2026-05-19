@@ -1,0 +1,272 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AWS Supply Chain API — Data Integration Flows
+  description: 'AWS Supply Chain API — Data Integration Flows. 5 operations. Lead operation: Amazon List Data Integration
+    Flows. Self-contained Naftiko capability covering one Amazon Supply Chain business surface.'
+  tags:
+  - Amazon Supply Chain
+  - Data Integration Flows
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_SUPPLY_CHAIN_API_KEY: AMAZON_SUPPLY_CHAIN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-supply-chain-data-integration-flows
+    baseUri: https://scn.amazonaws.com
+    description: AWS Supply Chain API — Data Integration Flows business capability. Self-contained, no shared references.
+    resources:
+    - name: api-instances-instanceId-data-integration-flows
+      path: /api/instances/{instanceId}/data-integration-flows
+      operations:
+      - name: listdataintegrationflows
+        method: GET
+        description: Amazon List Data Integration Flows
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: instanceId
+          in: path
+          type: string
+          description: The instance identifier
+          required: true
+        - name: maxResults
+          in: query
+          type: integer
+          description: Maximum results per page
+        - name: nextToken
+          in: query
+          type: string
+          description: Pagination token
+      - name: createdataintegrationflow
+        method: PUT
+        description: Amazon Create Data Integration Flow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: instanceId
+          in: path
+          type: string
+          description: The instance identifier
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-instances-instanceId-data-integration-flows-name
+      path: /api/instances/{instanceId}/data-integration-flows/{name}
+      operations:
+      - name: getdataintegrationflow
+        method: GET
+        description: Amazon Get Data Integration Flow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: instanceId
+          in: path
+          type: string
+          description: The instance identifier
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The flow name
+          required: true
+      - name: updatedataintegrationflow
+        method: PATCH
+        description: Amazon Update Data Integration Flow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: instanceId
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedataintegrationflow
+        method: DELETE
+        description: Amazon Delete Data Integration Flow
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: instanceId
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_SUPPLY_CHAIN_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-supply-chain-data-integration-flows-rest
+    port: 8080
+    description: REST adapter for AWS Supply Chain API — Data Integration Flows. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/instances/{instanceid}/data-integration-flows
+      name: api-instances-instanceid-data-integration-flows
+      description: REST surface for api-instances-instanceId-data-integration-flows.
+      operations:
+      - method: GET
+        name: listdataintegrationflows
+        description: Amazon List Data Integration Flows
+        call: amazon-supply-chain-data-integration-flows.listdataintegrationflows
+        with:
+          instanceId: rest.instanceId
+          maxResults: rest.maxResults
+          nextToken: rest.nextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: createdataintegrationflow
+        description: Amazon Create Data Integration Flow
+        call: amazon-supply-chain-data-integration-flows.createdataintegrationflow
+        with:
+          instanceId: rest.instanceId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/instances/{instanceid}/data-integration-flows/{name}
+      name: api-instances-instanceid-data-integration-flows-name
+      description: REST surface for api-instances-instanceId-data-integration-flows-name.
+      operations:
+      - method: GET
+        name: getdataintegrationflow
+        description: Amazon Get Data Integration Flow
+        call: amazon-supply-chain-data-integration-flows.getdataintegrationflow
+        with:
+          instanceId: rest.instanceId
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatedataintegrationflow
+        description: Amazon Update Data Integration Flow
+        call: amazon-supply-chain-data-integration-flows.updatedataintegrationflow
+        with:
+          instanceId: rest.instanceId
+          name: rest.name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedataintegrationflow
+        description: Amazon Delete Data Integration Flow
+        call: amazon-supply-chain-data-integration-flows.deletedataintegrationflow
+        with:
+          instanceId: rest.instanceId
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-supply-chain-data-integration-flows-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AWS Supply Chain API — Data Integration Flows. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-list-data-integration-flows
+      description: Amazon List Data Integration Flows
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-supply-chain-data-integration-flows.listdataintegrationflows
+      with:
+        instanceId: tools.instanceId
+        maxResults: tools.maxResults
+        nextToken: tools.nextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-create-data-integration-flow
+      description: Amazon Create Data Integration Flow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-supply-chain-data-integration-flows.createdataintegrationflow
+      with:
+        instanceId: tools.instanceId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-get-data-integration-flow
+      description: Amazon Get Data Integration Flow
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-supply-chain-data-integration-flows.getdataintegrationflow
+      with:
+        instanceId: tools.instanceId
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-update-data-integration-flow
+      description: Amazon Update Data Integration Flow
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: amazon-supply-chain-data-integration-flows.updatedataintegrationflow
+      with:
+        instanceId: tools.instanceId
+        name: tools.name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-delete-data-integration-flow
+      description: Amazon Delete Data Integration Flow
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: amazon-supply-chain-data-integration-flows.deletedataintegrationflow
+      with:
+        instanceId: tools.instanceId
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
