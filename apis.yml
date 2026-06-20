@@ -4,7 +4,7 @@ description: AWS Supply Chain is a cloud-based application that works with your 
   and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended
   actions to help mitigate supply chain disruptions.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - AWS
 - ERP Integration
