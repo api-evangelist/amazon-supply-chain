@@ -37,17 +37,17 @@ apis:
     url: https://aws.amazon.com/supply-chain/pricing/
   - type: FAQ
     url: https://aws.amazon.com/supply-chain/faqs/
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-bill-of-materials.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-data-integration-events.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-data-integration-flows.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-data-lake.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-instances.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-tags.yaml
 common:
 - type: Portal
@@ -66,7 +66,7 @@ common:
   url: https://github.com/aws
 - type: Console
   url: https://console.aws.amazon.com/scn/
-- type: SignUp
+- type: Signup
   url: https://portal.aws.amazon.com/billing/signup
 - type: Login
   url: https://signin.aws.amazon.com/
