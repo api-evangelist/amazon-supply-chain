@@ -50,6 +50,14 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-tags.yaml
 common:
+- type: TrustCenter
+  url: security/amazon-supply-chain-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-supply-chain-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-supply-chain-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-supply-chain-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/supply-chain/
 - type: Documentation
