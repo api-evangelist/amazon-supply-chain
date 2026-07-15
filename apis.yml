@@ -50,6 +50,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-tags.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-supply-chain-agentic-access.yml
 - type: TrustCenter
   url: security/amazon-supply-chain-trust-center.yml
 - type: VulnerabilityDisclosure
