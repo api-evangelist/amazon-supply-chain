@@ -1,0 +1,300 @@
+openapi: 3.0.3
+info:
+  title: AWS Supply Chain Bill of Materials Instances API
+  description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
+  version: '2024-01-01'
+  x-generated-from: documentation
+servers:
+- url: https://scn.amazonaws.com
+  description: AWS Supply Chain API endpoint
+security:
+- hmac: []
+tags:
+- name: Instances
+paths:
+  /api/instances:
+    get:
+      operationId: ListInstances
+      summary: Amazon List Instances
+      description: Lists AWS Supply Chain instances in your account
+      tags:
+      - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+        description: Maximum number of results to return
+        example: 50
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token for next page of results
+      - name: instanceNameFilter
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: Filter by instance names
+      - name: instanceStateFilter
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: Filter by instance states
+      responses:
+        '200':
+          description: Successful response with list of instances
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instances:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Instance'
+                  nextToken:
+                    type: string
+              examples:
+                ListInstances200Example:
+                  summary: Default ListInstances 200 response
+                  x-microcks-default: true
+                  value:
+                    instances:
+                    - instanceId: inst-abc12345
+                      instanceName: MySupplyChainInstance
+                      instanceState: Active
+                    nextToken: null
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+    post:
+      operationId: CreateInstance
+      summary: Amazon Create Instance
+      description: Creates a new AWS Supply Chain instance
+      tags:
+      - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instanceName:
+                  type: string
+                  description: Name for the new instance
+                instanceDescription:
+                  type: string
+                  description: Description for the new instance
+                kmsKeyArn:
+                  type: string
+                  description: KMS key ARN for encryption
+                tags:
+                  $ref: '#/components/schemas/TagMap'
+            examples:
+              CreateInstanceRequestExample:
+                summary: Default CreateInstance request
+                x-microcks-default: true
+                value:
+                  instanceName: MySupplyChainInstance
+                  instanceDescription: Production supply chain management instance
+      responses:
+        '200':
+          description: Instance created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/Instance'
+              examples:
+                CreateInstance200Example:
+                  summary: Default CreateInstance 200 response
+                  x-microcks-default: true
+                  value:
+                    instance:
+                      instanceId: inst-abc12345
+                      instanceName: MySupplyChainInstance
+                      instanceState: Initializing
+        '400':
+          description: Bad request
+        '409':
+          description: Conflict - instance already exists
+        '500':
+          description: Internal server error
+  /api/instances/{instanceId}:
+    get:
+      operationId: GetInstance
+      summary: Amazon Get Instance
+      description: Gets details of an AWS Supply Chain instance
+      tags:
+      - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The instance identifier
+        example: inst-abc12345
+      responses:
+        '200':
+          description: Instance details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/Instance'
+              examples:
+                GetInstance200Example:
+                  summary: Default GetInstance 200 response
+                  x-microcks-default: true
+                  value:
+                    instance:
+                      instanceId: inst-abc12345
+                      instanceName: MySupplyChainInstance
+                      instanceState: Active
+        '404':
+          description: Instance not found
+    patch:
+      operationId: UpdateInstance
+      summary: Amazon Update Instance
+      description: Updates an AWS Supply Chain instance
+      tags:
+      - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The instance identifier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instanceName:
+                  type: string
+                instanceDescription:
+                  type: string
+      responses:
+        '200':
+          description: Instance updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/Instance'
+    delete:
+      operationId: DeleteInstance
+      summary: Amazon Delete Instance
+      description: Deletes an AWS Supply Chain instance
+      tags:
+      - Instances
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The instance identifier
+      responses:
+        '200':
+          description: Instance deletion initiated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instance:
+                    $ref: '#/components/schemas/Instance'
+components:
+  schemas:
+    Instance:
+      type: object
+      description: An AWS Supply Chain instance
+      properties:
+        instanceId:
+          type: string
+          description: The unique identifier of the instance
+          example: inst-abc12345
+        instanceName:
+          type: string
+          description: The name of the instance
+          example: MySupplyChainInstance
+        instanceDescription:
+          type: string
+          description: The description of the instance
+          example: Production supply chain instance
+        instanceState:
+          type: string
+          enum:
+          - Initializing
+          - Active
+          - CreateFailed
+          - DeleteFailed
+          - Deleting
+          - Deleted
+          description: The state of the instance
+          example: Active
+        kmsKeyArn:
+          type: string
+          description: The KMS key ARN used to encrypt instance data
+          example: arn:aws:kms:us-east-1:123456789012:key/abc12345
+        webAppDnsDomain:
+          type: string
+          description: The DNS domain for the web application
+          example: instance.scn.amazonaws.com
+        createdTime:
+          type: string
+          format: date-time
+          description: The creation timestamp
+          example: '2025-01-15T10:30:00Z'
+        lastModifiedTime:
+          type: string
+          format: date-time
+          description: The last modification timestamp
+          example: '2025-03-01T08:00:00Z'
+    TagMap:
+      type: object
+      description: A map of tags
+      additionalProperties:
+        type: string
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4

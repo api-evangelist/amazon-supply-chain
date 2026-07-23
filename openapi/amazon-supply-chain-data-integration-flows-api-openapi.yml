@@ -1,0 +1,230 @@
+openapi: 3.0.3
+info:
+  title: AWS Supply Chain Bill of Materials Data Integration Flows API
+  description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
+  version: '2024-01-01'
+  x-generated-from: documentation
+servers:
+- url: https://scn.amazonaws.com
+  description: AWS Supply Chain API endpoint
+security:
+- hmac: []
+tags:
+- name: Data Integration Flows
+paths:
+  /api/instances/{instanceId}/data-integration-flows:
+    get:
+      operationId: ListDataIntegrationFlows
+      summary: Amazon List Data Integration Flows
+      description: Lists data integration flows for an instance
+      tags:
+      - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The instance identifier
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+        description: Maximum results per page
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+      responses:
+        '200':
+          description: List of data integration flows
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  flows:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataIntegrationFlow'
+                  nextToken:
+                    type: string
+    put:
+      operationId: CreateDataIntegrationFlow
+      summary: Amazon Create Data Integration Flow
+      description: Creates a data integration flow
+      tags:
+      - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The instance identifier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                sources:
+                  type: array
+                  items:
+                    type: object
+                transformation:
+                  type: object
+                target:
+                  type: object
+                tags:
+                  $ref: '#/components/schemas/TagMap'
+      responses:
+        '200':
+          description: Flow created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  flow:
+                    $ref: '#/components/schemas/DataIntegrationFlow'
+  /api/instances/{instanceId}/data-integration-flows/{name}:
+    get:
+      operationId: GetDataIntegrationFlow
+      summary: Amazon Get Data Integration Flow
+      description: Gets details of a data integration flow
+      tags:
+      - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The instance identifier
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The flow name
+      responses:
+        '200':
+          description: Flow details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  flow:
+                    $ref: '#/components/schemas/DataIntegrationFlow'
+    patch:
+      operationId: UpdateDataIntegrationFlow
+      summary: Amazon Update Data Integration Flow
+      description: Updates a data integration flow
+      tags:
+      - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Flow updated
+    delete:
+      operationId: DeleteDataIntegrationFlow
+      summary: Amazon Delete Data Integration Flow
+      description: Deletes a data integration flow
+      tags:
+      - Data Integration Flows
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Flow deleted
+components:
+  schemas:
+    DataIntegrationFlow:
+      type: object
+      description: A data integration flow definition
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        name:
+          type: string
+          description: The flow name
+          example: MyIntegrationFlow
+        sources:
+          type: array
+          description: Data sources for the flow
+          items:
+            type: object
+        transformation:
+          type: object
+          description: Data transformation configuration
+        target:
+          type: object
+          description: Data target configuration
+        createdTime:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        lastModifiedTime:
+          type: string
+          format: date-time
+          description: Last modification timestamp
+    TagMap:
+      type: object
+      description: A map of tags
+      additionalProperties:
+        type: string
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4

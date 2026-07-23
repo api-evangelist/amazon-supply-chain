@@ -1,0 +1,328 @@
+openapi: 3.0.3
+info:
+  title: AWS Supply Chain Bill of Materials Data Lake API
+  description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
+  version: '2024-01-01'
+  x-generated-from: documentation
+servers:
+- url: https://scn.amazonaws.com
+  description: AWS Supply Chain API endpoint
+security:
+- hmac: []
+tags:
+- name: Data Lake
+paths:
+  /api/instances/{instanceId}/namespaces/{namespace}/datasets:
+    get:
+      operationId: ListDataLakeDatasets
+      summary: Amazon List Data Lake Datasets
+      description: Lists data lake datasets in a namespace
+      tags:
+      - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The instance identifier
+      - name: namespace
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The namespace name
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of datasets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  datasets:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataLakeDataset'
+                  nextToken:
+                    type: string
+    put:
+      operationId: CreateDataLakeDataset
+      summary: Amazon Create Data Lake Dataset
+      description: Creates a data lake dataset
+      tags:
+      - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: namespace
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                schema:
+                  type: object
+      responses:
+        '200':
+          description: Dataset created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dataset:
+                    $ref: '#/components/schemas/DataLakeDataset'
+  /api/instances/{instanceId}/namespaces/{namespace}/datasets/{name}:
+    get:
+      operationId: GetDataLakeDataset
+      summary: Amazon Get Data Lake Dataset
+      description: Gets details of a data lake dataset
+      tags:
+      - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: namespace
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Dataset details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dataset:
+                    $ref: '#/components/schemas/DataLakeDataset'
+    patch:
+      operationId: UpdateDataLakeDataset
+      summary: Amazon Update Data Lake Dataset
+      description: Updates a data lake dataset
+      tags:
+      - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: namespace
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Dataset updated
+    delete:
+      operationId: DeleteDataLakeDataset
+      summary: Amazon Delete Data Lake Dataset
+      description: Deletes a data lake dataset
+      tags:
+      - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: namespace
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Dataset deleted
+  /api/instances/{instanceId}/namespaces:
+    get:
+      operationId: ListDataLakeNamespaces
+      summary: Amazon List Data Lake Namespaces
+      description: Lists data lake namespaces for an instance
+      tags:
+      - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of namespaces
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  namespaces:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataLakeNamespace'
+                  nextToken:
+                    type: string
+    put:
+      operationId: CreateDataLakeNamespace
+      summary: Amazon Create Data Lake Namespace
+      description: Creates a data lake namespace
+      tags:
+      - Data Lake
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Namespace created
+components:
+  schemas:
+    DataLakeDataset:
+      type: object
+      description: A data lake dataset
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        namespace:
+          type: string
+          description: The namespace containing the dataset
+          example: asc
+        name:
+          type: string
+          description: The dataset name
+          example: product
+        description:
+          type: string
+          description: The dataset description
+        schema:
+          type: object
+          description: The dataset schema
+        partitionSpec:
+          type: object
+          description: The partition specification
+        createdTime:
+          type: string
+          format: date-time
+        lastModifiedTime:
+          type: string
+          format: date-time
+    DataLakeNamespace:
+      type: object
+      description: A data lake namespace
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        name:
+          type: string
+          description: The namespace name
+          example: asc
+        description:
+          type: string
+          description: The namespace description
+        createdTime:
+          type: string
+          format: date-time
+        lastModifiedTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4

@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: AWS Supply Chain Bill of Materials Data Integration Events API
+  description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
+  version: '2024-01-01'
+  x-generated-from: documentation
+servers:
+- url: https://scn.amazonaws.com
+  description: AWS Supply Chain API endpoint
+security:
+- hmac: []
+tags:
+- name: Data Integration Events
+paths:
+  /api/instances/{instanceId}/data-integration-events:
+    get:
+      operationId: ListDataIntegrationEvents
+      summary: Amazon List Data Integration Events
+      description: Lists data integration events for an instance
+      tags:
+      - Data Integration Events
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: eventType
+        in: query
+        schema:
+          type: string
+        description: Filter by event type
+      - name: maxResults
+        in: query
+        schema:
+          type: integer
+      - name: nextToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of events
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DataIntegrationEvent'
+                  nextToken:
+                    type: string
+    post:
+      operationId: SendDataIntegrationEvent
+      summary: Amazon Send Data Integration Event
+      description: Sends a data integration event
+      tags:
+      - Data Integration Events
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - eventType
+              - data
+              - eventGroupId
+              - eventTimestamp
+              properties:
+                eventType:
+                  type: string
+                  description: The event type
+                data:
+                  type: string
+                  description: The event data payload
+                eventGroupId:
+                  type: string
+                  description: The event group identifier
+                eventTimestamp:
+                  type: string
+                  format: date-time
+                  description: The event timestamp
+                clientToken:
+                  type: string
+      responses:
+        '200':
+          description: Event sent
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  eventId:
+                    type: string
+components:
+  schemas:
+    DataIntegrationEvent:
+      type: object
+      description: A data integration event
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+        eventId:
+          type: string
+          description: The event identifier
+        eventType:
+          type: string
+          description: The event type
+        eventGroupId:
+          type: string
+          description: The event group identifier
+        eventTimestamp:
+          type: string
+          format: date-time
+          description: The event timestamp
+        data:
+          type: string
+          description: The event data payload
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4

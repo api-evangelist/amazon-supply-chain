@@ -1,0 +1,107 @@
+openapi: 3.0.3
+info:
+  title: AWS Supply Chain Bill of Materials Tags API
+  description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
+  version: '2024-01-01'
+  x-generated-from: documentation
+servers:
+- url: https://scn.amazonaws.com
+  description: AWS Supply Chain API endpoint
+security:
+- hmac: []
+tags:
+- name: Tags
+paths:
+  /api/instances/{instanceId}/tags:
+    get:
+      operationId: ListTagsForResource
+      summary: Amazon List Tags for Resource
+      description: Lists tags for an AWS Supply Chain resource
+      tags:
+      - Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Tags for the resource
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tags:
+                    $ref: '#/components/schemas/TagMap'
+    post:
+      operationId: TagResource
+      summary: Amazon Tag Resource
+      description: Adds tags to an AWS Supply Chain resource
+      tags:
+      - Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tags:
+                  $ref: '#/components/schemas/TagMap'
+      responses:
+        '200':
+          description: Tags added successfully
+    delete:
+      operationId: UntagResource
+      summary: Amazon Untag Resource
+      description: Removes tags from an AWS Supply Chain resource
+      tags:
+      - Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: tagKeys
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+        description: Tag keys to remove
+      responses:
+        '200':
+          description: Tags removed successfully
+components:
+  schemas:
+    TagMap:
+      type: object
+      description: A map of tags
+      additionalProperties:
+        type: string
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4

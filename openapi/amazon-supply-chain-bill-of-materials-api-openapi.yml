@@ -1,0 +1,127 @@
+openapi: 3.0.3
+info:
+  title: AWS Supply Chain Bill of Materials API
+  description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
+  version: '2024-01-01'
+  x-generated-from: documentation
+servers:
+- url: https://scn.amazonaws.com
+  description: AWS Supply Chain API endpoint
+security:
+- hmac: []
+tags:
+- name: Bill of Materials
+paths:
+  /api/instances/{instanceId}/bill-of-materials-import-jobs:
+    post:
+      operationId: CreateBillOfMaterialsImportJob
+      summary: Amazon Create Bill of Materials Import Job
+      description: Creates a bill of materials import job from an S3 file
+      tags:
+      - Bill of Materials
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The instance identifier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - s3uri
+              properties:
+                s3uri:
+                  type: string
+                  description: The S3 URI of the BOM import file
+                  example: s3://my-bucket/bom-data.csv
+                clientToken:
+                  type: string
+                  description: Idempotency token
+      responses:
+        '200':
+          description: Import job created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job:
+                    $ref: '#/components/schemas/BillOfMaterialsImportJob'
+  /api/instances/{instanceId}/bill-of-materials-import-jobs/{jobId}:
+    get:
+      operationId: GetBillOfMaterialsImportJob
+      summary: Amazon Get Bill of Materials Import Job
+      description: Gets status of a bill of materials import job
+      tags:
+      - Bill of Materials
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The job identifier
+      responses:
+        '200':
+          description: Import job details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  job:
+                    $ref: '#/components/schemas/BillOfMaterialsImportJob'
+components:
+  schemas:
+    BillOfMaterialsImportJob:
+      type: object
+      description: A bill of materials import job
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        jobId:
+          type: string
+          description: The job identifier
+          example: job-abc12345
+        status:
+          type: string
+          enum:
+          - New
+          - Failed
+          - InProgress
+          - Queued
+          - Success
+          description: The job status
+          example: Success
+        s3uri:
+          type: string
+          description: The S3 URI of the import file
+          example: s3://my-bucket/bom-data.csv
+        message:
+          type: string
+          description: Status message
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
