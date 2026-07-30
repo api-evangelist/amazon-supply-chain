@@ -4,7 +4,20 @@ description: AWS Supply Chain is a cloud-based application that works with your 
   and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended
   actions to help mitigate supply chain disruptions.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-supply-chain.png
 tags:
 - AWS
 - ERP Integration
@@ -16,21 +29,171 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: amazon-supply-chain:aws-supply-chain-api
-  name: AWS Supply Chain API
-  description: The AWS Supply Chain API provides programmatic access to create and manage supply chain instances, data lakes,
-    data integrations, and bills of materials for supply chain visibility and risk management.
+- aid: amazon-supply-chain:amazon-supply-chain-bill-of-materials-api
+  name: Amazon Supply Chain Bill of Materials API
+  description: >-
+    The Bill of Materials API from Amazon Supply Chain — 2 operation(s) for bill of materials.
   humanURL: https://aws.amazon.com/supply-chain/
   baseURL: https://scn.amazonaws.com
   tags:
-  - Logistics
-  - Machine Learning
-  - Supply Chain
+  - Bill of Materials
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-supply-chain-bill-of-materials-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/supply-chain/
+  - type: Pricing
+    url: https://aws.amazon.com/supply-chain/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/supply-chain/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-events.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-lake.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-tags.yaml
+- aid: amazon-supply-chain:amazon-supply-chain-data-integration-events-api
+  name: Amazon Supply Chain Data Integration Events API
+  description: >-
+    The Data Integration Events API from Amazon Supply Chain — 1 operation(s) for data integration events.
+  humanURL: https://aws.amazon.com/supply-chain/
+  baseURL: https://scn.amazonaws.com
+  tags:
+  - Data Integration Events
+  properties:
   - type: OpenAPI
-    url: openapi/amazon-supply-chain.yaml
+    url: openapi/amazon-supply-chain-data-integration-events-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/supply-chain/
+  - type: Pricing
+    url: https://aws.amazon.com/supply-chain/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/supply-chain/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-events.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-lake.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-tags.yaml
+- aid: amazon-supply-chain:amazon-supply-chain-data-integration-flows-api
+  name: Amazon Supply Chain Data Integration Flows API
+  description: >-
+    The Data Integration Flows API from Amazon Supply Chain — 2 operation(s) for data integration flows.
+  humanURL: https://aws.amazon.com/supply-chain/
+  baseURL: https://scn.amazonaws.com
+  tags:
+  - Data Integration Flows
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-supply-chain-data-integration-flows-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/supply-chain/
+  - type: Pricing
+    url: https://aws.amazon.com/supply-chain/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/supply-chain/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-events.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-lake.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-tags.yaml
+- aid: amazon-supply-chain:amazon-supply-chain-data-lake-api
+  name: Amazon Supply Chain Data Lake API
+  description: The Data Lake API from Amazon Supply Chain — 3 operation(s) for data lake.
+  humanURL: https://aws.amazon.com/supply-chain/
+  baseURL: https://scn.amazonaws.com
+  tags:
+  - Data Lake
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-supply-chain-data-lake-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/supply-chain/
+  - type: Pricing
+    url: https://aws.amazon.com/supply-chain/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/supply-chain/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-events.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-lake.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-tags.yaml
+- aid: amazon-supply-chain:amazon-supply-chain-instances-api
+  name: Amazon Supply Chain Instances API
+  description: The Instances API from Amazon Supply Chain — 2 operation(s) for instances.
+  humanURL: https://aws.amazon.com/supply-chain/
+  baseURL: https://scn.amazonaws.com
+  tags:
+  - Instances
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-supply-chain-instances-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/supply-chain/
+  - type: Pricing
+    url: https://aws.amazon.com/supply-chain/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/supply-chain/faqs/
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-events.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-data-lake.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-instances.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-supply-chain-tags.yaml
+- aid: amazon-supply-chain:amazon-supply-chain-tags-api
+  name: Amazon Supply Chain Tags API
+  description: The Tags API from Amazon Supply Chain — 1 operation(s) for tags.
+  humanURL: https://aws.amazon.com/supply-chain/
+  baseURL: https://scn.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-supply-chain-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.html
   - type: GettingStarted
     url: https://aws.amazon.com/supply-chain/
   - type: Pricing
@@ -50,6 +213,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-supply-chain-tags.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-supply-chain/overview
 - type: AgenticAccess
   url: agentic-access/amazon-supply-chain-agentic-access.yml
 - type: TrustCenter
