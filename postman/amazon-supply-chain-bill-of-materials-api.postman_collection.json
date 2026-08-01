@@ -1,0 +1,308 @@
+{
+  "info": {
+    "_postman_id": "9f397545-341d-4b94-8818-17f211e799f6",
+    "name": "AWS Supply Chain Bill of Materials API",
+    "description": "AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:55:33.000Z",
+    "updatedAt": "2026-07-28T00:55:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9f397545-341d-4b94-8818-17f211e799f6"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "instances",
+          "item": [
+            {
+              "name": "{instanceId}",
+              "item": [
+                {
+                  "name": "bill-of-materials-import-jobs",
+                  "item": [
+                    {
+                      "name": "{jobId}",
+                      "item": [
+                        {
+                          "name": "Amazon Get Bill of Materials Import Job",
+                          "id": "1448e338-c630-4738-b485-6a33de253db3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/bill-of-materials-import-jobs/:jobId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "bill-of-materials-import-jobs",
+                                ":jobId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f850ee66-ee61-4268-b558-eb1090fc98f9",
+                                  "key": "instanceId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "2bb61259-ec67-476e-a5b6-243d074eb78c",
+                                  "key": "jobId",
+                                  "value": "<string>",
+                                  "description": "(Required) The job identifier"
+                                }
+                              ]
+                            },
+                            "description": "Gets status of a bill of materials import job"
+                          },
+                          "response": [
+                            {
+                              "id": "46d23d02-241f-4faf-8e0d-873f97e8cba8",
+                              "name": "Import job details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/instances/:instanceId/bill-of-materials-import-jobs/:jobId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "instances",
+                                    ":instanceId",
+                                    "bill-of-materials-import-jobs",
+                                    ":jobId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "instanceId"
+                                    },
+                                    {
+                                      "key": "jobId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"job\": {\n    \"instanceId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"status\": \"New\",\n    \"s3uri\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T00:55:34.000Z",
+                              "updatedAt": "2026-07-28T00:55:34.000Z",
+                              "uid": "35240-46d23d02-241f-4faf-8e0d-873f97e8cba8"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:55:34.000Z",
+                          "updatedAt": "2026-07-28T00:55:34.000Z",
+                          "uid": "35240-1448e338-c630-4738-b485-6a33de253db3"
+                        }
+                      ],
+                      "id": "40a75c48-09df-41f0-a1ed-9043131fc13a",
+                      "createdAt": "2026-07-28T00:55:34.000Z",
+                      "updatedAt": "2026-07-28T00:55:34.000Z",
+                      "uid": "35240-40a75c48-09df-41f0-a1ed-9043131fc13a"
+                    },
+                    {
+                      "name": "Amazon Create Bill of Materials Import Job",
+                      "id": "d4720948-57b6-4589-ae97-a8c53d53cc4e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"s3uri\": \"<string>\",\n  \"clientToken\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId/bill-of-materials-import-jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId",
+                            "bill-of-materials-import-jobs"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8607c7d6-26c6-4a40-9b3e-5cdc896694db",
+                              "key": "instanceId",
+                              "value": "<string>",
+                              "description": "(Required) The instance identifier"
+                            }
+                          ]
+                        },
+                        "description": "Creates a bill of materials import job from an S3 file"
+                      },
+                      "response": [
+                        {
+                          "id": "90e1d2aa-883e-457b-90ef-0a971f0846e8",
+                          "name": "Import job created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"s3uri\": \"<string>\",\n  \"clientToken\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/bill-of-materials-import-jobs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "bill-of-materials-import-jobs"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "instanceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"job\": {\n    \"instanceId\": \"<string>\",\n    \"jobId\": \"<string>\",\n    \"status\": \"New\",\n    \"s3uri\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T00:55:34.000Z",
+                          "updatedAt": "2026-07-28T00:55:34.000Z",
+                          "uid": "35240-90e1d2aa-883e-457b-90ef-0a971f0846e8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:55:34.000Z",
+                      "updatedAt": "2026-07-28T00:55:34.000Z",
+                      "uid": "35240-d4720948-57b6-4589-ae97-a8c53d53cc4e"
+                    }
+                  ],
+                  "id": "3d00a77e-9d03-41bc-a27c-bf54ee48201c",
+                  "createdAt": "2026-07-28T00:55:34.000Z",
+                  "updatedAt": "2026-07-28T00:55:34.000Z",
+                  "uid": "35240-3d00a77e-9d03-41bc-a27c-bf54ee48201c"
+                }
+              ],
+              "id": "16065e30-d848-4008-a369-9157b76ad081",
+              "createdAt": "2026-07-28T00:55:34.000Z",
+              "updatedAt": "2026-07-28T00:55:34.000Z",
+              "uid": "35240-16065e30-d848-4008-a369-9157b76ad081"
+            }
+          ],
+          "id": "46bd7c02-f5b8-443d-8e32-a9fd142323f2",
+          "createdAt": "2026-07-28T00:55:34.000Z",
+          "updatedAt": "2026-07-28T00:55:34.000Z",
+          "uid": "35240-46bd7c02-f5b8-443d-8e32-a9fd142323f2"
+        }
+      ],
+      "id": "23285f26-7c36-4f53-b67a-c130c8a79cd8",
+      "createdAt": "2026-07-28T00:55:34.000Z",
+      "updatedAt": "2026-07-28T00:55:34.000Z",
+      "uid": "35240-23285f26-7c36-4f53-b67a-c130c8a79cd8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://scn.amazonaws.com"
+    }
+  ]
+}

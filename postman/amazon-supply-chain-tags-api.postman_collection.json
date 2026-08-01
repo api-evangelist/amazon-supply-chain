@@ -1,0 +1,372 @@
+{
+  "info": {
+    "_postman_id": "985cc9c9-8863-4265-95b2-0e6d3b214df4",
+    "name": "AWS Supply Chain Bill of Materials Tags API",
+    "description": "AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:55:38.000Z",
+    "updatedAt": "2026-07-28T00:55:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-985cc9c9-8863-4265-95b2-0e6d3b214df4"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "instances",
+          "item": [
+            {
+              "name": "{instanceId}",
+              "item": [
+                {
+                  "name": "tags",
+                  "item": [
+                    {
+                      "name": "Amazon List Tags for Resource",
+                      "id": "7bfe61e3-3e9b-40bd-a418-37f99cda62fe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId/tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId",
+                            "tags"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9aa53a4a-c7e7-4186-b73f-2ed0b61c4387",
+                              "key": "instanceId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Lists tags for an AWS Supply Chain resource"
+                      },
+                      "response": [
+                        {
+                          "id": "a159a936-5872-4fec-a023-121ce7ac6f3b",
+                          "name": "Tags for the resource",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/tags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "tags"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "instanceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"tags\": {\n    \"tempor0\": \"<string>\",\n    \"sunt_f_\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T00:55:39.000Z",
+                          "updatedAt": "2026-07-28T00:55:39.000Z",
+                          "uid": "35240-a159a936-5872-4fec-a023-121ce7ac6f3b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:55:38.000Z",
+                      "updatedAt": "2026-07-28T00:55:38.000Z",
+                      "uid": "35240-7bfe61e3-3e9b-40bd-a418-37f99cda62fe"
+                    },
+                    {
+                      "name": "Amazon Tag Resource",
+                      "id": "d00e3a74-4543-4fa7-ac78-f3f74399229a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tags\": {\n    \"tempor0\": \"<string>\",\n    \"sunt_f_\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId/tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId",
+                            "tags"
+                          ],
+                          "variable": [
+                            {
+                              "id": "deb702e8-b3e8-45c0-a0f6-336a70d00e69",
+                              "key": "instanceId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Adds tags to an AWS Supply Chain resource"
+                      },
+                      "response": [
+                        {
+                          "id": "35858f01-cf59-4a03-adb4-59bffbd9efa0",
+                          "name": "Tags added successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"tags\": {\n    \"tempor0\": \"<string>\",\n    \"sunt_f_\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/tags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "tags"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "instanceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:55:39.000Z",
+                          "updatedAt": "2026-07-28T00:55:39.000Z",
+                          "uid": "35240-35858f01-cf59-4a03-adb4-59bffbd9efa0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:55:38.000Z",
+                      "updatedAt": "2026-07-28T00:55:38.000Z",
+                      "uid": "35240-d00e3a74-4543-4fa7-ac78-f3f74399229a"
+                    },
+                    {
+                      "name": "Amazon Untag Resource",
+                      "id": "049b329c-d4fd-49f7-9b22-a48659fdff1d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId/tags?tagKeys=<string>&tagKeys=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId",
+                            "tags"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Tag keys to remove",
+                              "key": "tagKeys",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Tag keys to remove",
+                              "key": "tagKeys",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "db85e2fc-0ac0-4d7a-8ab1-587319b26bb8",
+                              "key": "instanceId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Removes tags from an AWS Supply Chain resource"
+                      },
+                      "response": [
+                        {
+                          "id": "8f1a1e66-3daf-49b6-bde3-55528b9da552",
+                          "name": "Tags removed successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/tags?tagKeys=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "tags"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Tag keys to remove",
+                                  "key": "tagKeys",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "instanceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:55:39.000Z",
+                          "updatedAt": "2026-07-28T00:55:39.000Z",
+                          "uid": "35240-8f1a1e66-3daf-49b6-bde3-55528b9da552"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:55:38.000Z",
+                      "updatedAt": "2026-07-28T00:55:38.000Z",
+                      "uid": "35240-049b329c-d4fd-49f7-9b22-a48659fdff1d"
+                    }
+                  ],
+                  "id": "b4e0ec73-5a38-4438-9fed-0d93639697da",
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-b4e0ec73-5a38-4438-9fed-0d93639697da"
+                }
+              ],
+              "id": "489b0b3e-5ed5-4972-9f05-81cf7f9c3b4e",
+              "createdAt": "2026-07-28T00:55:38.000Z",
+              "updatedAt": "2026-07-28T00:55:38.000Z",
+              "uid": "35240-489b0b3e-5ed5-4972-9f05-81cf7f9c3b4e"
+            }
+          ],
+          "id": "61564e14-1add-41f4-a24b-9983fada5d58",
+          "createdAt": "2026-07-28T00:55:38.000Z",
+          "updatedAt": "2026-07-28T00:55:38.000Z",
+          "uid": "35240-61564e14-1add-41f4-a24b-9983fada5d58"
+        }
+      ],
+      "id": "c4b7f352-0d1b-4111-831c-51efad7940b9",
+      "createdAt": "2026-07-28T00:55:38.000Z",
+      "updatedAt": "2026-07-28T00:55:38.000Z",
+      "uid": "35240-c4b7f352-0d1b-4111-831c-51efad7940b9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://scn.amazonaws.com"
+    }
+  ]
+}

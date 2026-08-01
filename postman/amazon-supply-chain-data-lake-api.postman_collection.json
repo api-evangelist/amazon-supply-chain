@@ -1,0 +1,929 @@
+{
+  "info": {
+    "_postman_id": "f7ff4526-2a11-4f85-a69d-438091b77eaa",
+    "name": "AWS Supply Chain Bill of Materials Data Lake API",
+    "description": "AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:55:36.000Z",
+    "updatedAt": "2026-07-28T00:55:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f7ff4526-2a11-4f85-a69d-438091b77eaa"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "instances",
+          "item": [
+            {
+              "name": "{instanceId}",
+              "item": [
+                {
+                  "name": "namespaces",
+                  "item": [
+                    {
+                      "name": "{namespace}",
+                      "item": [
+                        {
+                          "name": "datasets",
+                          "item": [
+                            {
+                              "name": "{name}",
+                              "item": [
+                                {
+                                  "name": "Amazon Get Data Lake Dataset",
+                                  "id": "6d14e841-36fa-4c14-9047-201e26f40ff9",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "instances",
+                                        ":instanceId",
+                                        "namespaces",
+                                        ":namespace",
+                                        "datasets",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "f7a50624-14a9-44b7-8617-ff851ca905d7",
+                                          "key": "instanceId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "8fd6fb84-a72b-43ed-adc4-5d91c6f9ed66",
+                                          "key": "namespace",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "2f8a7082-e26a-4ef4-bfa3-538137eb7cea",
+                                          "key": "name",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Gets details of a data lake dataset"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "dc031599-312a-4962-864f-a052153faa75",
+                                      "name": "Dataset details",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "instances",
+                                            ":instanceId",
+                                            "namespaces",
+                                            ":namespace",
+                                            "datasets",
+                                            ":name"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "instanceId"
+                                            },
+                                            {
+                                              "key": "namespace"
+                                            },
+                                            {
+                                              "key": "name"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"dataset\": {\n    \"instanceId\": \"<string>\",\n    \"namespace\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"schema\": {},\n    \"partitionSpec\": {},\n    \"createdTime\": \"<dateTime>\",\n    \"lastModifiedTime\": \"<dateTime>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T00:55:37.000Z",
+                                      "updatedAt": "2026-07-28T00:55:37.000Z",
+                                      "uid": "35240-dc031599-312a-4962-864f-a052153faa75"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T00:55:37.000Z",
+                                  "updatedAt": "2026-07-28T00:55:37.000Z",
+                                  "uid": "35240-6d14e841-36fa-4c14-9047-201e26f40ff9"
+                                },
+                                {
+                                  "name": "Amazon Update Data Lake Dataset",
+                                  "id": "146c17f8-4447-44df-9aca-c4b4f87770aa",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "instances",
+                                        ":instanceId",
+                                        "namespaces",
+                                        ":namespace",
+                                        "datasets",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "f49b7a04-7314-43f1-9588-0e79fb46f754",
+                                          "key": "instanceId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "5a198058-1f13-40e4-9858-91a0d3ded356",
+                                          "key": "namespace",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "36067cfd-6a14-4ebf-b62b-60a95c6f3fe1",
+                                          "key": "name",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Updates a data lake dataset"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "d44f898c-b98d-4693-81d4-806300465b5b",
+                                      "name": "Dataset updated",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "instances",
+                                            ":instanceId",
+                                            "namespaces",
+                                            ":namespace",
+                                            "datasets",
+                                            ":name"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "instanceId"
+                                            },
+                                            {
+                                              "key": "namespace"
+                                            },
+                                            {
+                                              "key": "name"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T00:55:37.000Z",
+                                      "updatedAt": "2026-07-28T00:55:37.000Z",
+                                      "uid": "35240-d44f898c-b98d-4693-81d4-806300465b5b"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T00:55:37.000Z",
+                                  "updatedAt": "2026-07-28T00:55:37.000Z",
+                                  "uid": "35240-146c17f8-4447-44df-9aca-c4b4f87770aa"
+                                },
+                                {
+                                  "name": "Amazon Delete Data Lake Dataset",
+                                  "id": "d5734091-18af-494b-848d-c2a4e2494301",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "instances",
+                                        ":instanceId",
+                                        "namespaces",
+                                        ":namespace",
+                                        "datasets",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "8843ce8b-5671-4069-8e37-5b024e7aa062",
+                                          "key": "instanceId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "de62818d-d26a-40f9-a046-da84e2a6b863",
+                                          "key": "namespace",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "9c64febd-b5a8-4e6c-b453-7e6510f7e689",
+                                          "key": "name",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Deletes a data lake dataset"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "5aa22c61-122a-4f8a-844d-1e68a18e0a7c",
+                                      "name": "Dataset deleted",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Authorization",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "instances",
+                                            ":instanceId",
+                                            "namespaces",
+                                            ":namespace",
+                                            "datasets",
+                                            ":name"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "instanceId"
+                                            },
+                                            {
+                                              "key": "namespace"
+                                            },
+                                            {
+                                              "key": "name"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T00:55:37.000Z",
+                                      "updatedAt": "2026-07-28T00:55:37.000Z",
+                                      "uid": "35240-5aa22c61-122a-4f8a-844d-1e68a18e0a7c"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T00:55:37.000Z",
+                                  "updatedAt": "2026-07-28T00:55:37.000Z",
+                                  "uid": "35240-d5734091-18af-494b-848d-c2a4e2494301"
+                                }
+                              ],
+                              "id": "ac61e634-21fe-4fbe-97dc-c1a6e9edbda9",
+                              "createdAt": "2026-07-28T00:55:37.000Z",
+                              "updatedAt": "2026-07-28T00:55:37.000Z",
+                              "uid": "35240-ac61e634-21fe-4fbe-97dc-c1a6e9edbda9"
+                            },
+                            {
+                              "name": "Amazon List Data Lake Datasets",
+                              "id": "3d74f809-402e-4c32-8189-952b1d29fac4",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets?maxResults=<integer>&nextToken=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "instances",
+                                    ":instanceId",
+                                    "namespaces",
+                                    ":namespace",
+                                    "datasets"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "maxResults",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "nextToken",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "2d48cedf-42a4-4a25-bdf4-619848807212",
+                                      "key": "instanceId",
+                                      "value": "<string>",
+                                      "description": "(Required) The instance identifier"
+                                    },
+                                    {
+                                      "id": "e9319d80-4ba3-44e8-a96f-4554ebe16c80",
+                                      "key": "namespace",
+                                      "value": "<string>",
+                                      "description": "(Required) The namespace name"
+                                    }
+                                  ]
+                                },
+                                "description": "Lists data lake datasets in a namespace"
+                              },
+                              "response": [
+                                {
+                                  "id": "12f4014a-529d-4bef-87e8-273c61e0d318",
+                                  "name": "List of datasets",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets?maxResults=<integer>&nextToken=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "instances",
+                                        ":instanceId",
+                                        "namespaces",
+                                        ":namespace",
+                                        "datasets"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "maxResults",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "nextToken",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "instanceId"
+                                        },
+                                        {
+                                          "key": "namespace"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"datasets\": [\n    {\n      \"instanceId\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"schema\": {},\n      \"partitionSpec\": {},\n      \"createdTime\": \"<dateTime>\",\n      \"lastModifiedTime\": \"<dateTime>\"\n    },\n    {\n      \"instanceId\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"schema\": {},\n      \"partitionSpec\": {},\n      \"createdTime\": \"<dateTime>\",\n      \"lastModifiedTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T00:55:37.000Z",
+                                  "updatedAt": "2026-07-28T00:55:37.000Z",
+                                  "uid": "35240-12f4014a-529d-4bef-87e8-273c61e0d318"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T00:55:37.000Z",
+                              "updatedAt": "2026-07-28T00:55:37.000Z",
+                              "uid": "35240-3d74f809-402e-4c32-8189-952b1d29fac4"
+                            },
+                            {
+                              "name": "Amazon Create Data Lake Dataset",
+                              "id": "cdb88c0a-3a99-459f-afb0-a0b00050268d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "instances",
+                                    ":instanceId",
+                                    "namespaces",
+                                    ":namespace",
+                                    "datasets"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "994bc139-a760-486a-a0d0-9007b010f99b",
+                                      "key": "instanceId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "7332a8ad-7e2d-44dd-8a6c-7dd9c3ad45e8",
+                                      "key": "namespace",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Creates a data lake dataset"
+                              },
+                              "response": [
+                                {
+                                  "id": "8108be4e-cc4e-4fb5-8e3e-d4a9150b0de9",
+                                  "name": "Dataset created",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "Authorization",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"schema\": {}\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces/:namespace/datasets",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "instances",
+                                        ":instanceId",
+                                        "namespaces",
+                                        ":namespace",
+                                        "datasets"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "instanceId"
+                                        },
+                                        {
+                                          "key": "namespace"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"dataset\": {\n    \"instanceId\": \"<string>\",\n    \"namespace\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"schema\": {},\n    \"partitionSpec\": {},\n    \"createdTime\": \"<dateTime>\",\n    \"lastModifiedTime\": \"<dateTime>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T00:55:37.000Z",
+                                  "updatedAt": "2026-07-28T00:55:37.000Z",
+                                  "uid": "35240-8108be4e-cc4e-4fb5-8e3e-d4a9150b0de9"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T00:55:37.000Z",
+                              "updatedAt": "2026-07-28T00:55:37.000Z",
+                              "uid": "35240-cdb88c0a-3a99-459f-afb0-a0b00050268d"
+                            }
+                          ],
+                          "id": "891088a0-ef2f-4f7a-b17e-c0b8386de934",
+                          "createdAt": "2026-07-28T00:55:37.000Z",
+                          "updatedAt": "2026-07-28T00:55:37.000Z",
+                          "uid": "35240-891088a0-ef2f-4f7a-b17e-c0b8386de934"
+                        }
+                      ],
+                      "id": "22d16c8a-1452-476b-8ee1-603685a1b232",
+                      "createdAt": "2026-07-28T00:55:37.000Z",
+                      "updatedAt": "2026-07-28T00:55:37.000Z",
+                      "uid": "35240-22d16c8a-1452-476b-8ee1-603685a1b232"
+                    },
+                    {
+                      "name": "Amazon List Data Lake Namespaces",
+                      "id": "c76f8e76-af47-4963-b00d-38632c63b594",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces?maxResults=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId",
+                            "namespaces"
+                          ],
+                          "query": [
+                            {
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "93e59f9a-b574-4abd-a450-acb8c6812e3b",
+                              "key": "instanceId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Lists data lake namespaces for an instance"
+                      },
+                      "response": [
+                        {
+                          "id": "04f05ad7-4cb7-4c5a-8e14-3817478db033",
+                          "name": "List of namespaces",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces?maxResults=<integer>&nextToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "namespaces"
+                              ],
+                              "query": [
+                                {
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "nextToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "instanceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"namespaces\": [\n    {\n      \"instanceId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdTime\": \"<dateTime>\",\n      \"lastModifiedTime\": \"<dateTime>\"\n    },\n    {\n      \"instanceId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"createdTime\": \"<dateTime>\",\n      \"lastModifiedTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:55:37.000Z",
+                          "updatedAt": "2026-07-28T00:55:37.000Z",
+                          "uid": "35240-04f05ad7-4cb7-4c5a-8e14-3817478db033"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:55:37.000Z",
+                      "updatedAt": "2026-07-28T00:55:37.000Z",
+                      "uid": "35240-c76f8e76-af47-4963-b00d-38632c63b594"
+                    },
+                    {
+                      "name": "Amazon Create Data Lake Namespace",
+                      "id": "b365fc49-072f-4509-b1ce-94888aa19a10",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId",
+                            "namespaces"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2955bdc4-3e88-4c5d-b0df-a452fbbccfa7",
+                              "key": "instanceId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Creates a data lake namespace"
+                      },
+                      "response": [
+                        {
+                          "id": "7e13f533-6b32-423e-b02e-b333991484db",
+                          "name": "Namespace created",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/namespaces",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "namespaces"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "instanceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:55:37.000Z",
+                          "updatedAt": "2026-07-28T00:55:37.000Z",
+                          "uid": "35240-7e13f533-6b32-423e-b02e-b333991484db"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:55:37.000Z",
+                      "updatedAt": "2026-07-28T00:55:37.000Z",
+                      "uid": "35240-b365fc49-072f-4509-b1ce-94888aa19a10"
+                    }
+                  ],
+                  "id": "3521c353-3d92-4b64-9239-499a0a6d560f",
+                  "createdAt": "2026-07-28T00:55:37.000Z",
+                  "updatedAt": "2026-07-28T00:55:37.000Z",
+                  "uid": "35240-3521c353-3d92-4b64-9239-499a0a6d560f"
+                }
+              ],
+              "id": "e1b8de67-8962-4876-bdc1-59b231125b5a",
+              "createdAt": "2026-07-28T00:55:37.000Z",
+              "updatedAt": "2026-07-28T00:55:37.000Z",
+              "uid": "35240-e1b8de67-8962-4876-bdc1-59b231125b5a"
+            }
+          ],
+          "id": "566f9974-4425-4e68-83df-0b1b95ed56d7",
+          "createdAt": "2026-07-28T00:55:37.000Z",
+          "updatedAt": "2026-07-28T00:55:37.000Z",
+          "uid": "35240-566f9974-4425-4e68-83df-0b1b95ed56d7"
+        }
+      ],
+      "id": "1567eedc-0ec4-4570-97d1-23d4ec863f45",
+      "createdAt": "2026-07-28T00:55:37.000Z",
+      "updatedAt": "2026-07-28T00:55:37.000Z",
+      "uid": "35240-1567eedc-0ec4-4570-97d1-23d4ec863f45"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://scn.amazonaws.com"
+    }
+  ]
+}

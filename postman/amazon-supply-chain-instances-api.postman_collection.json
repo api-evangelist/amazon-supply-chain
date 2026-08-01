@@ -1,0 +1,949 @@
+{
+  "info": {
+    "_postman_id": "fa0b9963-47e2-4dc9-9652-62f441ac2267",
+    "name": "AWS Supply Chain Bill of Materials Instances API",
+    "description": "AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:55:37.000Z",
+    "updatedAt": "2026-07-28T00:55:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fa0b9963-47e2-4dc9-9652-62f441ac2267"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "instances",
+          "item": [
+            {
+              "name": "{instanceId}",
+              "item": [
+                {
+                  "name": "Amazon Get Instance",
+                  "id": "c77e6d19-af47-4ff6-beba-6fa8213423a0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances/:instanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances",
+                        ":instanceId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bfc4eb7c-427a-46ba-998e-ec4b1c117cde",
+                          "key": "instanceId",
+                          "value": "<string>",
+                          "description": "(Required) The instance identifier"
+                        }
+                      ]
+                    },
+                    "description": "Gets details of an AWS Supply Chain instance"
+                  },
+                  "response": [
+                    {
+                      "id": "1c5513ae-24e2-4e13-be24-14e69b7a5470",
+                      "name": "Instance details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "instanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"instance\": {\n    \"instanceId\": \"<string>\",\n    \"instanceName\": \"<string>\",\n    \"instanceDescription\": \"<string>\",\n    \"instanceState\": \"Active\",\n    \"kmsKeyArn\": \"<string>\",\n    \"webAppDnsDomain\": \"<string>\",\n    \"createdTime\": \"<dateTime>\",\n    \"lastModifiedTime\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-07-28T00:55:38.000Z",
+                      "updatedAt": "2026-07-28T00:55:38.000Z",
+                      "uid": "35240-1c5513ae-24e2-4e13-be24-14e69b7a5470"
+                    },
+                    {
+                      "id": "f9fc1ebc-ec75-4a4a-8bbe-57758017eb8c",
+                      "name": "Instance not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "instanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:55:38.000Z",
+                      "updatedAt": "2026-07-28T00:55:38.000Z",
+                      "uid": "35240-f9fc1ebc-ec75-4a4a-8bbe-57758017eb8c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-c77e6d19-af47-4ff6-beba-6fa8213423a0"
+                },
+                {
+                  "name": "Amazon Update Instance",
+                  "id": "c0ae6857-a46f-401e-9c7e-3a4cec11091b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"instanceName\": \"<string>\",\n  \"instanceDescription\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances/:instanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances",
+                        ":instanceId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3521b9bd-8237-4b39-8fdd-389b15e0cc16",
+                          "key": "instanceId",
+                          "value": "<string>",
+                          "description": "(Required) The instance identifier"
+                        }
+                      ]
+                    },
+                    "description": "Updates an AWS Supply Chain instance"
+                  },
+                  "response": [
+                    {
+                      "id": "0547031d-5d15-4db7-abbc-85a8be5b0685",
+                      "name": "Instance updated",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"instanceName\": \"<string>\",\n  \"instanceDescription\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "instanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"instance\": {\n    \"instanceId\": \"<string>\",\n    \"instanceName\": \"<string>\",\n    \"instanceDescription\": \"<string>\",\n    \"instanceState\": \"Active\",\n    \"kmsKeyArn\": \"<string>\",\n    \"webAppDnsDomain\": \"<string>\",\n    \"createdTime\": \"<dateTime>\",\n    \"lastModifiedTime\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-07-28T00:55:38.000Z",
+                      "updatedAt": "2026-07-28T00:55:38.000Z",
+                      "uid": "35240-0547031d-5d15-4db7-abbc-85a8be5b0685"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-c0ae6857-a46f-401e-9c7e-3a4cec11091b"
+                },
+                {
+                  "name": "Amazon Delete Instance",
+                  "id": "2598a410-d20f-4141-97ce-1876253f1c04",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances/:instanceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances",
+                        ":instanceId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "57eb1391-7432-4040-a1aa-cd33e75e36e3",
+                          "key": "instanceId",
+                          "value": "<string>",
+                          "description": "(Required) The instance identifier"
+                        }
+                      ]
+                    },
+                    "description": "Deletes an AWS Supply Chain instance"
+                  },
+                  "response": [
+                    {
+                      "id": "71419a03-8c06-4e03-814e-a709b6d4cd31",
+                      "name": "Instance deletion initiated",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "instanceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"instance\": {\n    \"instanceId\": \"<string>\",\n    \"instanceName\": \"<string>\",\n    \"instanceDescription\": \"<string>\",\n    \"instanceState\": \"Active\",\n    \"kmsKeyArn\": \"<string>\",\n    \"webAppDnsDomain\": \"<string>\",\n    \"createdTime\": \"<dateTime>\",\n    \"lastModifiedTime\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-07-28T00:55:38.000Z",
+                      "updatedAt": "2026-07-28T00:55:38.000Z",
+                      "uid": "35240-71419a03-8c06-4e03-814e-a709b6d4cd31"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-2598a410-d20f-4141-97ce-1876253f1c04"
+                }
+              ],
+              "id": "22454c0a-0f6f-4311-9f9a-8de1de51159a",
+              "createdAt": "2026-07-28T00:55:38.000Z",
+              "updatedAt": "2026-07-28T00:55:38.000Z",
+              "uid": "35240-22454c0a-0f6f-4311-9f9a-8de1de51159a"
+            },
+            {
+              "name": "Amazon List Instances",
+              "id": "ef82e053-d429-47d1-a67a-4330a248bdf6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/instances?maxResults=<integer>&nextToken=<string>&instanceNameFilter=<string>&instanceNameFilter=<string>&instanceStateFilter=<string>&instanceStateFilter=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "instances"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "maxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination token for next page of results",
+                      "key": "nextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by instance names",
+                      "key": "instanceNameFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by instance names",
+                      "key": "instanceNameFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by instance states",
+                      "key": "instanceStateFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by instance states",
+                      "key": "instanceStateFilter",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Lists AWS Supply Chain instances in your account"
+              },
+              "response": [
+                {
+                  "id": "2d07df0f-e41c-488a-9b46-f67482d49e84",
+                  "name": "Successful response with list of instances",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances?maxResults=<integer>&nextToken=<string>&instanceNameFilter=<string>&instanceStateFilter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Pagination token for next page of results",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by instance names",
+                          "key": "instanceNameFilter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by instance states",
+                          "key": "instanceStateFilter",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"instances\": [\n    {\n      \"instanceId\": \"<string>\",\n      \"instanceName\": \"<string>\",\n      \"instanceDescription\": \"<string>\",\n      \"instanceState\": \"CreateFailed\",\n      \"kmsKeyArn\": \"<string>\",\n      \"webAppDnsDomain\": \"<string>\",\n      \"createdTime\": \"<dateTime>\",\n      \"lastModifiedTime\": \"<dateTime>\"\n    },\n    {\n      \"instanceId\": \"<string>\",\n      \"instanceName\": \"<string>\",\n      \"instanceDescription\": \"<string>\",\n      \"instanceState\": \"CreateFailed\",\n      \"kmsKeyArn\": \"<string>\",\n      \"webAppDnsDomain\": \"<string>\",\n      \"createdTime\": \"<dateTime>\",\n      \"lastModifiedTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-2d07df0f-e41c-488a-9b46-f67482d49e84"
+                },
+                {
+                  "id": "d95f3338-9866-4e29-99f3-5d571678dd54",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances?maxResults=<integer>&nextToken=<string>&instanceNameFilter=<string>&instanceStateFilter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Pagination token for next page of results",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by instance names",
+                          "key": "instanceNameFilter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by instance states",
+                          "key": "instanceStateFilter",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-d95f3338-9866-4e29-99f3-5d571678dd54"
+                },
+                {
+                  "id": "f45cc60d-72e2-45ae-b8e2-ec4175a1f949",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances?maxResults=<integer>&nextToken=<string>&instanceNameFilter=<string>&instanceStateFilter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Pagination token for next page of results",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by instance names",
+                          "key": "instanceNameFilter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by instance states",
+                          "key": "instanceStateFilter",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-f45cc60d-72e2-45ae-b8e2-ec4175a1f949"
+                },
+                {
+                  "id": "ac5227cf-d5a6-4fe7-84cf-9a09c2731dfd",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances?maxResults=<integer>&nextToken=<string>&instanceNameFilter=<string>&instanceStateFilter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of results to return",
+                          "key": "maxResults",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Pagination token for next page of results",
+                          "key": "nextToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by instance names",
+                          "key": "instanceNameFilter",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by instance states",
+                          "key": "instanceStateFilter",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-ac5227cf-d5a6-4fe7-84cf-9a09c2731dfd"
+                }
+              ],
+              "createdAt": "2026-07-28T00:55:38.000Z",
+              "updatedAt": "2026-07-28T00:55:38.000Z",
+              "uid": "35240-ef82e053-d429-47d1-a67a-4330a248bdf6"
+            },
+            {
+              "name": "Amazon Create Instance",
+              "id": "f51bb40a-5c68-4972-9e06-331fa513a440",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"instanceName\": \"<string>\",\n  \"instanceDescription\": \"<string>\",\n  \"kmsKeyArn\": \"<string>\",\n  \"tags\": {\n    \"ad62e\": \"<string>\",\n    \"voluptate__a5\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/instances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "instances"
+                  ]
+                },
+                "description": "Creates a new AWS Supply Chain instance"
+              },
+              "response": [
+                {
+                  "id": "600fa255-f458-474b-90a3-f473358d1185",
+                  "name": "Instance created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"instanceName\": \"<string>\",\n  \"instanceDescription\": \"<string>\",\n  \"kmsKeyArn\": \"<string>\",\n  \"tags\": {\n    \"ad62e\": \"<string>\",\n    \"voluptate__a5\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"instance\": {\n    \"instanceId\": \"<string>\",\n    \"instanceName\": \"<string>\",\n    \"instanceDescription\": \"<string>\",\n    \"instanceState\": \"Active\",\n    \"kmsKeyArn\": \"<string>\",\n    \"webAppDnsDomain\": \"<string>\",\n    \"createdTime\": \"<dateTime>\",\n    \"lastModifiedTime\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-600fa255-f458-474b-90a3-f473358d1185"
+                },
+                {
+                  "id": "c1460b48-d6e6-4fa4-a96a-b9a1194dad78",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"instanceName\": \"<string>\",\n  \"instanceDescription\": \"<string>\",\n  \"kmsKeyArn\": \"<string>\",\n  \"tags\": {\n    \"ad62e\": \"<string>\",\n    \"voluptate__a5\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-c1460b48-d6e6-4fa4-a96a-b9a1194dad78"
+                },
+                {
+                  "id": "28f2d376-d837-487f-8710-62a6bd2c3c01",
+                  "name": "Conflict - instance already exists",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"instanceName\": \"<string>\",\n  \"instanceDescription\": \"<string>\",\n  \"kmsKeyArn\": \"<string>\",\n  \"tags\": {\n    \"ad62e\": \"<string>\",\n    \"voluptate__a5\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-28f2d376-d837-487f-8710-62a6bd2c3c01"
+                },
+                {
+                  "id": "663e3384-a8d7-4db5-b4a9-0ffb2d7cf270",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"instanceName\": \"<string>\",\n  \"instanceDescription\": \"<string>\",\n  \"kmsKeyArn\": \"<string>\",\n  \"tags\": {\n    \"ad62e\": \"<string>\",\n    \"voluptate__a5\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/instances",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "instances"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:55:38.000Z",
+                  "updatedAt": "2026-07-28T00:55:38.000Z",
+                  "uid": "35240-663e3384-a8d7-4db5-b4a9-0ffb2d7cf270"
+                }
+              ],
+              "createdAt": "2026-07-28T00:55:38.000Z",
+              "updatedAt": "2026-07-28T00:55:38.000Z",
+              "uid": "35240-f51bb40a-5c68-4972-9e06-331fa513a440"
+            }
+          ],
+          "id": "aa7900d0-2ef6-4a49-b535-95d03dede087",
+          "createdAt": "2026-07-28T00:55:38.000Z",
+          "updatedAt": "2026-07-28T00:55:38.000Z",
+          "uid": "35240-aa7900d0-2ef6-4a49-b535-95d03dede087"
+        }
+      ],
+      "id": "a1e1618f-e0bf-4b17-8048-6fb28e12bdc4",
+      "createdAt": "2026-07-28T00:55:38.000Z",
+      "updatedAt": "2026-07-28T00:55:38.000Z",
+      "uid": "35240-a1e1618f-e0bf-4b17-8048-6fb28e12bdc4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://scn.amazonaws.com"
+    }
+  ]
+}

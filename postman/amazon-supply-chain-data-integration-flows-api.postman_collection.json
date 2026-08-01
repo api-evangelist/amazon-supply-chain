@@ -1,0 +1,631 @@
+{
+  "info": {
+    "_postman_id": "44235b6c-2111-4447-a810-4af19a07020c",
+    "name": "AWS Supply Chain Bill of Materials Data Integration Flows API",
+    "description": "AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:55:35.000Z",
+    "updatedAt": "2026-07-28T00:55:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-44235b6c-2111-4447-a810-4af19a07020c"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "instances",
+          "item": [
+            {
+              "name": "{instanceId}",
+              "item": [
+                {
+                  "name": "data-integration-flows",
+                  "item": [
+                    {
+                      "name": "{name}",
+                      "item": [
+                        {
+                          "name": "Amazon Get Data Integration Flow",
+                          "id": "68491b92-617a-4c79-acaf-e80a0bfd1b5d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "data-integration-flows",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9f28fa3d-c761-494d-9e0a-0088e0515909",
+                                  "key": "instanceId",
+                                  "value": "<string>",
+                                  "description": "(Required) The instance identifier"
+                                },
+                                {
+                                  "id": "c67eb4bb-b0d1-4cdd-b40e-d5bfaba03ffa",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) The flow name"
+                                }
+                              ]
+                            },
+                            "description": "Gets details of a data integration flow"
+                          },
+                          "response": [
+                            {
+                              "id": "c397f874-cb84-43a2-a80c-3f12f0488dcf",
+                              "name": "Flow details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "instances",
+                                    ":instanceId",
+                                    "data-integration-flows",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "instanceId"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"flow\": {\n    \"instanceId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"transformation\": {},\n    \"target\": {},\n    \"createdTime\": \"<dateTime>\",\n    \"lastModifiedTime\": \"<dateTime>\"\n  }\n}",
+                              "createdAt": "2026-07-28T00:55:36.000Z",
+                              "updatedAt": "2026-07-28T00:55:36.000Z",
+                              "uid": "35240-c397f874-cb84-43a2-a80c-3f12f0488dcf"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:55:36.000Z",
+                          "updatedAt": "2026-07-28T00:55:36.000Z",
+                          "uid": "35240-68491b92-617a-4c79-acaf-e80a0bfd1b5d"
+                        },
+                        {
+                          "name": "Amazon Update Data Integration Flow",
+                          "id": "40615c67-1d65-4f2f-9730-d860d5d00235",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "data-integration-flows",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5e46f3c0-873d-45a8-a64d-41392db1fe00",
+                                  "key": "instanceId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "6ccd8d46-32f8-4756-9861-7a6ea31ae33a",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Updates a data integration flow"
+                          },
+                          "response": [
+                            {
+                              "id": "644f093b-00d7-4629-98e0-b3a748494186",
+                              "name": "Flow updated",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "instances",
+                                    ":instanceId",
+                                    "data-integration-flows",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "instanceId"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:55:36.000Z",
+                              "updatedAt": "2026-07-28T00:55:36.000Z",
+                              "uid": "35240-644f093b-00d7-4629-98e0-b3a748494186"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:55:36.000Z",
+                          "updatedAt": "2026-07-28T00:55:36.000Z",
+                          "uid": "35240-40615c67-1d65-4f2f-9730-d860d5d00235"
+                        },
+                        {
+                          "name": "Amazon Delete Data Integration Flow",
+                          "id": "14709255-4c64-4fb0-84cc-9142879e8740",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "data-integration-flows",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "997b4a55-a120-429e-b1e1-fba91c787db2",
+                                  "key": "instanceId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "5493d9d3-4d2c-433a-8727-e4b58e78b821",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Deletes a data integration flow"
+                          },
+                          "response": [
+                            {
+                              "id": "7c0d4f24-e7f5-48a7-ac7f-405181b4835a",
+                              "name": "Flow deleted",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Authorization",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "instances",
+                                    ":instanceId",
+                                    "data-integration-flows",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "instanceId"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:55:36.000Z",
+                              "updatedAt": "2026-07-28T00:55:36.000Z",
+                              "uid": "35240-7c0d4f24-e7f5-48a7-ac7f-405181b4835a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:55:36.000Z",
+                          "updatedAt": "2026-07-28T00:55:36.000Z",
+                          "uid": "35240-14709255-4c64-4fb0-84cc-9142879e8740"
+                        }
+                      ],
+                      "id": "3c186188-a224-4c83-ac5d-6e5c2dd6db0d",
+                      "createdAt": "2026-07-28T00:55:36.000Z",
+                      "updatedAt": "2026-07-28T00:55:36.000Z",
+                      "uid": "35240-3c186188-a224-4c83-ac5d-6e5c2dd6db0d"
+                    },
+                    {
+                      "name": "Amazon List Data Integration Flows",
+                      "id": "4998f9d2-fec1-4eb1-a2d5-98e450407d3d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows?maxResults=<integer>&nextToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId",
+                            "data-integration-flows"
+                          ],
+                          "query": [
+                            {
+                              "description": "Maximum results per page",
+                              "key": "maxResults",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Pagination token",
+                              "key": "nextToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "e4a80442-c79d-45f7-a798-1c4c76acdf0f",
+                              "key": "instanceId",
+                              "value": "<string>",
+                              "description": "(Required) The instance identifier"
+                            }
+                          ]
+                        },
+                        "description": "Lists data integration flows for an instance"
+                      },
+                      "response": [
+                        {
+                          "id": "4a7ec220-f6c2-41e3-a675-e41909b461ab",
+                          "name": "List of data integration flows",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows?maxResults=<integer>&nextToken=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "data-integration-flows"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Maximum results per page",
+                                  "key": "maxResults",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Pagination token",
+                                  "key": "nextToken",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "instanceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"flows\": [\n    {\n      \"instanceId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"transformation\": {},\n      \"target\": {},\n      \"createdTime\": \"<dateTime>\",\n      \"lastModifiedTime\": \"<dateTime>\"\n    },\n    {\n      \"instanceId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"transformation\": {},\n      \"target\": {},\n      \"createdTime\": \"<dateTime>\",\n      \"lastModifiedTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextToken\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:55:36.000Z",
+                          "updatedAt": "2026-07-28T00:55:36.000Z",
+                          "uid": "35240-4a7ec220-f6c2-41e3-a675-e41909b461ab"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:55:36.000Z",
+                      "updatedAt": "2026-07-28T00:55:36.000Z",
+                      "uid": "35240-4998f9d2-fec1-4eb1-a2d5-98e450407d3d"
+                    },
+                    {
+                      "name": "Amazon Create Data Integration Flow",
+                      "id": "968b8fe2-70be-4332-8f2f-ccc39c325ea5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"transformation\": {},\n  \"target\": {},\n  \"tags\": {\n    \"nisi3\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "instances",
+                            ":instanceId",
+                            "data-integration-flows"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c0c2e7e4-fbb7-43c8-bf85-545d9fa78dd6",
+                              "key": "instanceId",
+                              "value": "<string>",
+                              "description": "(Required) The instance identifier"
+                            }
+                          ]
+                        },
+                        "description": "Creates a data integration flow"
+                      },
+                      "response": [
+                        {
+                          "id": "88ef542e-5126-4245-9b5a-340092d0b950",
+                          "name": "Flow created",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"transformation\": {},\n  \"target\": {},\n  \"tags\": {\n    \"nisi3\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/instances/:instanceId/data-integration-flows",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "instances",
+                                ":instanceId",
+                                "data-integration-flows"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "instanceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"flow\": {\n    \"instanceId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"transformation\": {},\n    \"target\": {},\n    \"createdTime\": \"<dateTime>\",\n    \"lastModifiedTime\": \"<dateTime>\"\n  }\n}",
+                          "createdAt": "2026-07-28T00:55:36.000Z",
+                          "updatedAt": "2026-07-28T00:55:36.000Z",
+                          "uid": "35240-88ef542e-5126-4245-9b5a-340092d0b950"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:55:36.000Z",
+                      "updatedAt": "2026-07-28T00:55:36.000Z",
+                      "uid": "35240-968b8fe2-70be-4332-8f2f-ccc39c325ea5"
+                    }
+                  ],
+                  "id": "2fb1275d-e616-46a7-8773-1bea608178a4",
+                  "createdAt": "2026-07-28T00:55:36.000Z",
+                  "updatedAt": "2026-07-28T00:55:36.000Z",
+                  "uid": "35240-2fb1275d-e616-46a7-8773-1bea608178a4"
+                }
+              ],
+              "id": "d3bab91d-62ef-4438-ba0b-40608abc75e2",
+              "createdAt": "2026-07-28T00:55:36.000Z",
+              "updatedAt": "2026-07-28T00:55:36.000Z",
+              "uid": "35240-d3bab91d-62ef-4438-ba0b-40608abc75e2"
+            }
+          ],
+          "id": "4cf581ed-9802-429e-b687-e85163019e9a",
+          "createdAt": "2026-07-28T00:55:36.000Z",
+          "updatedAt": "2026-07-28T00:55:36.000Z",
+          "uid": "35240-4cf581ed-9802-429e-b687-e85163019e9a"
+        }
+      ],
+      "id": "4a4a29ed-657d-4348-9ead-2ca6a4c106c9",
+      "createdAt": "2026-07-28T00:55:36.000Z",
+      "updatedAt": "2026-07-28T00:55:36.000Z",
+      "uid": "35240-4a4a29ed-657d-4348-9ead-2ca6a4c106c9"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://scn.amazonaws.com"
+    }
+  ]
+}

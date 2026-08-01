@@ -1,0 +1,24 @@
+{
+  "provider": "amazon-supply-chain",
+  "sources": [
+    "amazon-supply-chain-bill-of-materials-api-openapi.yml",
+    "amazon-supply-chain-data-integration-events-api-openapi.yml",
+    "amazon-supply-chain-data-integration-flows-api-openapi.yml",
+    "amazon-supply-chain-data-lake-api-openapi.yml",
+    "amazon-supply-chain-instances-api-openapi.yml",
+    "amazon-supply-chain-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-supply-chain-bill-of-materials-api-openapi.yml",
+    "amazon-supply-chain-data-integration-events-api-openapi.yml",
+    "amazon-supply-chain-data-integration-flows-api-openapi.yml",
+    "amazon-supply-chain-data-lake-api-openapi.yml",
+    "amazon-supply-chain-instances-api-openapi.yml",
+    "amazon-supply-chain-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
