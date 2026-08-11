@@ -48,18 +48,6 @@ apis:
     url: https://aws.amazon.com/supply-chain/pricing/
   - type: FAQ
     url: https://aws.amazon.com/supply-chain/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-events.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-lake.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-tags.yaml
 - aid: amazon-supply-chain:amazon-supply-chain-data-integration-events-api
   name: Amazon Supply Chain Data Integration Events API
   description: >-
@@ -79,18 +67,6 @@ apis:
     url: https://aws.amazon.com/supply-chain/pricing/
   - type: FAQ
     url: https://aws.amazon.com/supply-chain/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-events.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-lake.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-tags.yaml
 - aid: amazon-supply-chain:amazon-supply-chain-data-integration-flows-api
   name: Amazon Supply Chain Data Integration Flows API
   description: >-
@@ -110,18 +86,6 @@ apis:
     url: https://aws.amazon.com/supply-chain/pricing/
   - type: FAQ
     url: https://aws.amazon.com/supply-chain/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-events.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-lake.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-tags.yaml
 - aid: amazon-supply-chain:amazon-supply-chain-data-lake-api
   name: Amazon Supply Chain Data Lake API
   description: The Data Lake API from Amazon Supply Chain — 3 operation(s) for data lake.
@@ -140,18 +104,6 @@ apis:
     url: https://aws.amazon.com/supply-chain/pricing/
   - type: FAQ
     url: https://aws.amazon.com/supply-chain/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-events.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-lake.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-tags.yaml
 - aid: amazon-supply-chain:amazon-supply-chain-instances-api
   name: Amazon Supply Chain Instances API
   description: The Instances API from Amazon Supply Chain — 2 operation(s) for instances.
@@ -170,18 +122,6 @@ apis:
     url: https://aws.amazon.com/supply-chain/pricing/
   - type: FAQ
     url: https://aws.amazon.com/supply-chain/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-events.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-lake.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-tags.yaml
 - aid: amazon-supply-chain:amazon-supply-chain-tags-api
   name: Amazon Supply Chain Tags API
   description: The Tags API from Amazon Supply Chain — 1 operation(s) for tags.
@@ -200,18 +140,6 @@ apis:
     url: https://aws.amazon.com/supply-chain/pricing/
   - type: FAQ
     url: https://aws.amazon.com/supply-chain/faqs/
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-bill-of-materials.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-events.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-integration-flows.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-data-lake.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-instances.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-supply-chain-tags.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-supply-chain/overview
