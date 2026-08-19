@@ -1,0 +1,226 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Supply Chain Bill of Materials Data Lake API",
+    "version": "2024-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Lake",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Data Lake Datasets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/namespaces/:namespace/datasets",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The instance identifier"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path",
+                "description": "The namespace name"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists data lake datasets in a namespace"
+        },
+        {
+          "info": {
+            "name": "Amazon Create Data Lake Dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/namespaces/:namespace/datasets",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a data lake dataset"
+        },
+        {
+          "info": {
+            "name": "Amazon Get Data Lake Dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets details of a data lake dataset"
+        },
+        {
+          "info": {
+            "name": "Amazon Update Data Lake Dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a data lake dataset"
+        },
+        {
+          "info": {
+            "name": "Amazon Delete Data Lake Dataset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/namespaces/:namespace/datasets/:name",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a data lake dataset"
+        },
+        {
+          "info": {
+            "name": "Amazon List Data Lake Namespaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/namespaces",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists data lake namespaces for an instance"
+        },
+        {
+          "info": {
+            "name": "Amazon Create Data Lake Namespace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/namespaces",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a data lake namespace"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

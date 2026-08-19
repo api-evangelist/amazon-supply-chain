@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Supply Chain Bill of Materials Instances API",
+    "version": "2024-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Instances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances",
+            "params": [
+              {
+                "name": "maxResults",
+                "value": "50",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token for next page of results"
+              },
+              {
+                "name": "instanceNameFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter by instance names"
+              },
+              {
+                "name": "instanceStateFilter",
+                "value": "",
+                "type": "query",
+                "description": "Filter by instance states"
+              }
+            ]
+          },
+          "docs": "Lists AWS Supply Chain instances in your account"
+        },
+        {
+          "info": {
+            "name": "Amazon Create Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scn.amazonaws.com/api/instances",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new AWS Supply Chain instance"
+        },
+        {
+          "info": {
+            "name": "Amazon Get Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "inst-abc12345",
+                "type": "path",
+                "description": "The instance identifier"
+              }
+            ]
+          },
+          "docs": "Gets details of an AWS Supply Chain instance"
+        },
+        {
+          "info": {
+            "name": "Amazon Update Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The instance identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an AWS Supply Chain instance"
+        },
+        {
+          "info": {
+            "name": "Amazon Delete Instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The instance identifier"
+              }
+            ]
+          },
+          "docs": "Deletes an AWS Supply Chain instance"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

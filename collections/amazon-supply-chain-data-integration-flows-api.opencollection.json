@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Supply Chain Bill of Materials Data Integration Flows API",
+    "version": "2024-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Integration Flows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Data Integration Flows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/data-integration-flows",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The instance identifier"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum results per page"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Lists data integration flows for an instance"
+        },
+        {
+          "info": {
+            "name": "Amazon Create Data Integration Flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/data-integration-flows",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The instance identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a data integration flow"
+        },
+        {
+          "info": {
+            "name": "Amazon Get Data Integration Flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/data-integration-flows/:name",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The instance identifier"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The flow name"
+              }
+            ]
+          },
+          "docs": "Gets details of a data integration flow"
+        },
+        {
+          "info": {
+            "name": "Amazon Update Data Integration Flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/data-integration-flows/:name",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a data integration flow"
+        },
+        {
+          "info": {
+            "name": "Amazon Delete Data Integration Flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/data-integration-flows/:name",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a data integration flow"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

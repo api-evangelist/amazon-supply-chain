@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Supply Chain Bill of Materials Tags API",
+    "version": "2024-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Tags for Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/tags",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists tags for an AWS Supply Chain resource"
+        },
+        {
+          "info": {
+            "name": "Amazon Tag Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/tags",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds tags to an AWS Supply Chain resource"
+        },
+        {
+          "info": {
+            "name": "Amazon Untag Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/tags",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tagKeys",
+                "value": "",
+                "type": "query",
+                "description": "Tag keys to remove"
+              }
+            ]
+          },
+          "docs": "Removes tags from an AWS Supply Chain resource"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

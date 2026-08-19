@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Supply Chain Bill of Materials Data Integration Events API",
+    "version": "2024-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Integration Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon List Data Integration Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/data-integration-events",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by event type"
+              },
+              {
+                "name": "maxResults",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nextToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists data integration events for an instance"
+        },
+        {
+          "info": {
+            "name": "Amazon Send Data Integration Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/data-integration-events",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Sends a data integration event"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS Supply Chain Bill of Materials API",
+    "version": "2024-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bill of Materials",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Create Bill of Materials Import Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/bill-of-materials-import-jobs",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path",
+                "description": "The instance identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a bill of materials import job from an S3 file"
+        },
+        {
+          "info": {
+            "name": "Amazon Get Bill of Materials Import Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://scn.amazonaws.com/api/instances/:instanceId/bill-of-materials-import-jobs/:jobId",
+            "params": [
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path",
+                "description": "The job identifier"
+              }
+            ]
+          },
+          "docs": "Gets status of a bill of materials import job"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
