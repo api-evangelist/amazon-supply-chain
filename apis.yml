@@ -22,6 +22,12 @@ tags:
 - AWS
 - ERP Integration
 - Logistics
+- Machine-Learning
+- Supply Chain
+tags_raw:
+- AWS
+- ERP Integration
+- Logistics
 - Machine Learning
 - Supply Chain
 url: https://raw.githubusercontent.com/api-evangelist/amazon-supply-chain/refs/heads/main/apis.yml
