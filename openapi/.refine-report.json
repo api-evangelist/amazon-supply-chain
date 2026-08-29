@@ -19,6 +19,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "amazon-supply-chain-bill-of-materials-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "amazon-supply-chain-data-integration-events-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "amazon-supply-chain-data-integration-flows-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "amazon-supply-chain-data-lake-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "amazon-supply-chain-instances-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "amazon-supply-chain-tags-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
