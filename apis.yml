@@ -147,6 +147,8 @@ apis:
   humanURL: https://aws.amazon.com/supply-chain/
   baseURL: https://scn.amazonaws.com
   tags:
+  - Data Lake
+  tags_raw:
   - Datalake
   properties:
   - type: OpenAPI
