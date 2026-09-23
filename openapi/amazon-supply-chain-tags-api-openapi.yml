@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS Supply Chain Bill of Materials Tags API
+  title: AWS Supply Chain Tags API
   description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
   version: '2024-01-01'
   x-generated-from: documentation

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS Supply Chain Bill of Materials Data Lake API
+  title: AWS Supply Chain Data Lake API
   description: AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
   version: '2024-01-01'
   x-generated-from: documentation
@@ -10,7 +10,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: Data Lake
+- name: Datalake
 paths:
   /api/instances/{instanceId}/namespaces/{namespace}/datasets:
     get:
@@ -18,7 +18,7 @@ paths:
       summary: Amazon List Data Lake Datasets
       description: Lists data lake datasets in a namespace
       tags:
-      - Data Lake
+      - Datalake
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -62,7 +62,7 @@ paths:
       summary: Amazon Create Data Lake Dataset
       description: Creates a data lake dataset
       tags:
-      - Data Lake
+      - Datalake
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -106,7 +106,7 @@ paths:
       summary: Amazon Get Data Lake Dataset
       description: Gets details of a data lake dataset
       tags:
-      - Data Lake
+      - Datalake
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -141,7 +141,7 @@ paths:
       summary: Amazon Update Data Lake Dataset
       description: Updates a data lake dataset
       tags:
-      - Data Lake
+      - Datalake
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -175,7 +175,7 @@ paths:
       summary: Amazon Delete Data Lake Dataset
       description: Deletes a data lake dataset
       tags:
-      - Data Lake
+      - Datalake
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -204,7 +204,7 @@ paths:
       summary: Amazon List Data Lake Namespaces
       description: Lists data lake namespaces for an instance
       tags:
-      - Data Lake
+      - Datalake
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -241,7 +241,7 @@ paths:
       summary: Amazon Create Data Lake Namespace
       description: Creates a data lake namespace
       tags:
-      - Data Lake
+      - Datalake
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -267,6 +267,27 @@ paths:
           description: Namespace created
 components:
   schemas:
+    DataLakeNamespace:
+      type: object
+      description: A data lake namespace
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        name:
+          type: string
+          description: The namespace name
+          example: asc
+        description:
+          type: string
+          description: The namespace description
+        createdTime:
+          type: string
+          format: date-time
+        lastModifiedTime:
+          type: string
+          format: date-time
     DataLakeDataset:
       type: object
       description: A data lake dataset
@@ -292,27 +313,6 @@ components:
         partitionSpec:
           type: object
           description: The partition specification
-        createdTime:
-          type: string
-          format: date-time
-        lastModifiedTime:
-          type: string
-          format: date-time
-    DataLakeNamespace:
-      type: object
-      description: A data lake namespace
-      properties:
-        instanceId:
-          type: string
-          description: The instance identifier
-          example: inst-abc12345
-        name:
-          type: string
-          description: The namespace name
-          example: asc
-        description:
-          type: string
-          description: The namespace description
         createdTime:
           type: string
           format: date-time
