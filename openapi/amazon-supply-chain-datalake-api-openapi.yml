@@ -267,27 +267,6 @@ paths:
           description: Namespace created
 components:
   schemas:
-    DataLakeNamespace:
-      type: object
-      description: A data lake namespace
-      properties:
-        instanceId:
-          type: string
-          description: The instance identifier
-          example: inst-abc12345
-        name:
-          type: string
-          description: The namespace name
-          example: asc
-        description:
-          type: string
-          description: The namespace description
-        createdTime:
-          type: string
-          format: date-time
-        lastModifiedTime:
-          type: string
-          format: date-time
     DataLakeDataset:
       type: object
       description: A data lake dataset
@@ -313,6 +292,27 @@ components:
         partitionSpec:
           type: object
           description: The partition specification
+        createdTime:
+          type: string
+          format: date-time
+        lastModifiedTime:
+          type: string
+          format: date-time
+    DataLakeNamespace:
+      type: object
+      description: A data lake namespace
+      properties:
+        instanceId:
+          type: string
+          description: The instance identifier
+          example: inst-abc12345
+        name:
+          type: string
+          description: The namespace name
+          example: asc
+        description:
+          type: string
+          description: The namespace description
         createdTime:
           type: string
           format: date-time
