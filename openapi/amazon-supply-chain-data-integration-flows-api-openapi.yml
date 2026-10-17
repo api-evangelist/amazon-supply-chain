@@ -185,6 +185,11 @@ paths:
           description: Flow deleted
 components:
   schemas:
+    TagMap:
+      type: object
+      description: A map of tags
+      additionalProperties:
+        type: string
     DataIntegrationFlow:
       type: object
       description: A data integration flow definition
@@ -216,11 +221,6 @@ components:
           type: string
           format: date-time
           description: Last modification timestamp
-    TagMap:
-      type: object
-      description: A map of tags
-      additionalProperties:
-        type: string
   securitySchemes:
     hmac:
       type: apiKey
