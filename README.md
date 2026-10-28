@@ -1,4 +1,4 @@
-# Amazon Supply Chain (amazon-supply-chain)
+# Amazon Supply Chain
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,140 +66,193 @@
 
 AWS Supply Chain is a cloud-based application that works with your existing enterprise resource planning (ERP) and supply chain management systems to help you manage supply chain risks. It provides ML-powered insights and recommended actions to help mitigate supply chain disruptions.
 
-**URL:** [https://aws.amazon.com/supply-chain/](https://aws.amazon.com/supply-chain/)
+**Areas:** AWS · ERP Integration · Logistics · Machine Learning · Supply Chain
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon Supply Chain on APIs.io
 
-## Tags:
+Everything profiled for Amazon Supply Chain is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-supply-chain/](https://apis.io/providers/amazon-supply-chain/)** — or go straight to one of the APIs or properties below.
 
- - AWS, ERP Integration, Logistics, Machine Learning, Supply Chain
+### APIs (8)
 
-## Timestamps
+- [Amazon Supply Chain Bill of Materials API](https://apis.io/apis/amazon-supply-chain/amazon-supply-chain-bill-of-materials-api/) — The Bill of Materials API from Amazon Supply Chain — 2 operation(s) for bill of materials.
+- [Amazon Supply Chain Data Integration Events API](https://apis.io/apis/amazon-supply-chain/amazon-supply-chain-data-integration-events-api/) — The Data Integration Events API from Amazon Supply Chain — 1 operation(s) for data integration events.
+- [Amazon Supply Chain Data Integration Flows API](https://apis.io/apis/amazon-supply-chain/amazon-supply-chain-data-integration-flows-api/) — The Data Integration Flows API from Amazon Supply Chain — 2 operation(s) for data integration flows.
+- [Amazon Supply Chain Instances API](https://apis.io/apis/amazon-supply-chain/amazon-supply-chain-instances-api/) — The Instances API from Amazon Supply Chain — 2 operation(s) for instances.
+- [Amazon Supply Chain Tags API](https://apis.io/apis/amazon-supply-chain/amazon-supply-chain-tags-api/) — The Tags API from Amazon Supply Chain — 1 operation(s) for tags.
+- [Amazon Supply Chain Datalake API](https://apis.io/apis/amazon-supply-chain/amazon-supply-chain-datalake-api/) — The Datalake API from Amazon Supply Chain — 3 operation(s) for datalake.
+- [Amazon Supply Chain Supply Chain Namespaces API](https://apis.io/apis/amazon-supply-chain/amazon-supply-chain-namespaces-api/) — The Supply Chain Namespaces API from Amazon Supply Chain — 1 operation(s) for supply chain namespaces.
+- [Amazon Supply Chain Supply Chain Operations API](https://apis.io/apis/amazon-supply-chain/amazon-supply-chain-operations-api/) — The Supply Chain Operations API from Amazon Supply Chain — 2 operation(s) for supply chain operations.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### AWS Supply Chain API
+#### Agentic access (1)
 
-The AWS Supply Chain API provides programmatic access to create and manage supply chain instances, data lakes, data integrations, and bills of materials for supply chain visibility and risk management.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-**Human URL:** [https://aws.amazon.com/supply-chain/](https://aws.amazon.com/supply-chain/)
+- [Amazon Supply Chain Agentic Access](https://apis.io/agentic-access/amazon-supply-chain/amazon-supply-chain-agentic-access/)
 
-#### Tags:
+#### JSON Schema (6)
 
- - Logistics, Machine Learning, Supply Chain
+The data models the API reads and writes.
 
-#### Properties
+- [BillOfMaterialsImportJob](https://apis.io/schemas/amazon-supply-chain/amazon-supply-chain-bill-of-materials-import-job/)
+- [DataIntegrationEvent](https://apis.io/schemas/amazon-supply-chain/amazon-supply-chain-data-integration-event/)
+- [DataIntegrationFlow](https://apis.io/schemas/amazon-supply-chain/amazon-supply-chain-data-integration-flow/)
+- [DataLakeDataset](https://apis.io/schemas/amazon-supply-chain/amazon-supply-chain-data-lake-dataset/)
+- [DataLakeNamespace](https://apis.io/schemas/amazon-supply-chain/amazon-supply-chain-data-lake-namespace/)
+- [Instance](https://apis.io/schemas/amazon-supply-chain/amazon-supply-chain-instance/)
 
-- [Documentation](https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.html)
-- [OpenAPI](openapi/amazon-supply-chain.yaml)
-- [GettingStarted](https://aws.amazon.com/supply-chain/)
-- [Pricing](https://aws.amazon.com/supply-chain/pricing/)
-- [FAQ](https://aws.amazon.com/supply-chain/faqs/)
+#### JSON Structure (6)
 
-## Common Properties
+Data models expressed in JSON Structure.
 
-- [Portal](https://aws.amazon.com/supply-chain/)
+- [Amazon Supply Chain Bill Of Materials Import Job Structure](https://apis.io/json-structure/amazon-supply-chain/amazon-supply-chain-bill-of-materials-import-job-structure/)
+- [Amazon Supply Chain Data Integration Event Structure](https://apis.io/json-structure/amazon-supply-chain/amazon-supply-chain-data-integration-event-structure/)
+- [Amazon Supply Chain Data Integration Flow Structure](https://apis.io/json-structure/amazon-supply-chain/amazon-supply-chain-data-integration-flow-structure/)
+- [Amazon Supply Chain Data Lake Dataset Structure](https://apis.io/json-structure/amazon-supply-chain/amazon-supply-chain-data-lake-dataset-structure/)
+- [Amazon Supply Chain Data Lake Namespace Structure](https://apis.io/json-structure/amazon-supply-chain/amazon-supply-chain-data-lake-namespace-structure/)
+- [Amazon Supply Chain Instance Structure](https://apis.io/json-structure/amazon-supply-chain/amazon-supply-chain-instance-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Supply Chain Context](https://apis.io/jsonld/amazon-supply-chain/amazon-supply-chain-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Supply Chain Vocabulary](https://apis.io/vocabularies/amazon-supply-chain/amazon-supply-chain-vocabulary/)
+
+#### Examples (6)
+
+Example requests and responses.
+
+- [Amazon Supply Chain Bill Of Materials Import Job Example](https://apis.io/examples/amazon-supply-chain/amazon-supply-chain-bill-of-materials-import-job-example/)
+- [Amazon Supply Chain Data Integration Event Example](https://apis.io/examples/amazon-supply-chain/amazon-supply-chain-data-integration-event-example/)
+- [Amazon Supply Chain Data Integration Flow Example](https://apis.io/examples/amazon-supply-chain/amazon-supply-chain-data-integration-flow-example/)
+- [Amazon Supply Chain Data Lake Dataset Example](https://apis.io/examples/amazon-supply-chain/amazon-supply-chain-data-lake-dataset-example/)
+- [Amazon Supply Chain Data Lake Namespace Example](https://apis.io/examples/amazon-supply-chain/amazon-supply-chain-data-lake-namespace-example/)
+- [Amazon Supply Chain Instance Example](https://apis.io/examples/amazon-supply-chain/amazon-supply-chain-instance-example/)
+
+#### Collections (12)
+
+Postman and Open Collection request collections.
+
+- [AWS Supply Chain Bill of Materials API](https://apis.io/collections/amazon-supply-chain/open-amazon-supply-chain-bill-of-materials-api/)
+- [AWS Supply Chain Bill of Materials Data Integration Events API](https://apis.io/collections/amazon-supply-chain/open-amazon-supply-chain-data-integration-events-api/)
+- [AWS Supply Chain Bill of Materials Data Integration Flows API](https://apis.io/collections/amazon-supply-chain/open-amazon-supply-chain-data-integration-flows-api/)
+- [AWS Supply Chain Bill of Materials Data Lake API](https://apis.io/collections/amazon-supply-chain/open-amazon-supply-chain-data-lake-api/)
+- [AWS Supply Chain Bill of Materials Instances API](https://apis.io/collections/amazon-supply-chain/open-amazon-supply-chain-instances-api/)
+- [AWS Supply Chain Bill of Materials Tags API](https://apis.io/collections/amazon-supply-chain/open-amazon-supply-chain-tags-api/)
+- [AWS Supply Chain Bill of Materials API](https://apis.io/collections/amazon-supply-chain/postman-amazon-supply-chain-bill-of-materials-api/)
+- [AWS Supply Chain Bill of Materials Data Integration Events API](https://apis.io/collections/amazon-supply-chain/postman-amazon-supply-chain-data-integration-events-api/)
+- [AWS Supply Chain Bill of Materials Data Integration Flows API](https://apis.io/collections/amazon-supply-chain/postman-amazon-supply-chain-data-integration-flows-api/)
+- [AWS Supply Chain Bill of Materials Data Lake API](https://apis.io/collections/amazon-supply-chain/postman-amazon-supply-chain-data-lake-api/)
+- [AWS Supply Chain Bill of Materials Instances API](https://apis.io/collections/amazon-supply-chain/postman-amazon-supply-chain-instances-api/)
+- [AWS Supply Chain Bill of Materials Tags API](https://apis.io/collections/amazon-supply-chain/postman-amazon-supply-chain-tags-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon Supply Chain — jsonschema rules](https://apis.io/rules/amazon-supply-chain/amazon-supply-chain-jsonschema-spectral-rules/)
+- [Amazon Supply Chain API Rules](https://apis.io/rules/amazon-supply-chain/amazon-supply-chain-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Supply Chain Authentication](https://apis.io/security/amazon-supply-chain/amazon-supply-chain-authentication/)
+- [Amazon Supply Chain Domain Security](https://apis.io/security/amazon-supply-chain/amazon-supply-chain-domain-security/)
+- [Amazon Supply Chain Trust Center](https://apis.io/security/amazon-supply-chain/amazon-supply-chain-trust-center/)
+- [Amazon Supply Chain Vulnerability Disclosure](https://apis.io/security/amazon-supply-chain/amazon-supply-chain-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Supply Chain Plans Pricing](https://apis.io/plans/amazon-supply-chain/amazon-supply-chain-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Supply Chain Rate Limits](https://apis.io/rate-limits/amazon-supply-chain/amazon-supply-chain-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Supply Chain Finops](https://apis.io/finops/amazon-supply-chain/amazon-supply-chain-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aws.amazon.com/products/connect/decisions/)
 - [Documentation](https://docs.aws.amazon.com/aws-supply-chain/)
-- [TermsOfService](https://aws.amazon.com/service-terms/)
-- [PrivacyPolicy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/industries/supply-chain/)
-- [GitHubOrganization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/scn/)
-- [SignUp](https://portal.aws.amazon.com/billing/signup)
-- [Login](https://signin.aws.amazon.com/)
-- [StatusPage](https://health.aws.amazon.com/health/status)
-- [Contact](https://aws.amazon.com/contact-us/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| ML-Powered Insights | Machine learning models provide risk visibility and recommended actions for supply chain disruptions. |
-| ERP Integration | Connects with existing ERP and supply chain management systems via data integration flows. |
-| Data Lake | Centralized data lake for supply chain data with namespace and dataset management. |
-| Bill of Materials Import | Import bill of materials data from S3 for inventory and component tracking. |
-| Data Integration Events | Event-driven data ingestion for real-time supply chain data updates. |
-| Multi-instance | Create and manage multiple supply chain instances for different business units. |
+**Kin Score 39.5** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 23.2 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 44.0 |
+| Access clarity | 43.4 |
 
-| Name | Description |
-|------|-------------|
-| Supply Chain Risk Management | Identify and mitigate supply chain disruptions with ML-powered risk insights. |
-| Inventory Visibility | Unified view of inventory across suppliers, warehouses, and distribution centers. |
-| ERP Data Integration | Integrate ERP data with AWS Supply Chain for unified supply chain visibility. |
-| Demand Forecasting | Use ML models to forecast demand and optimize inventory levels. |
+**Agent readiness 28.4** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | verified |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| SAP ERP | Connect SAP ERP data to AWS Supply Chain via data integration flows. |
-| Oracle ERP | Integrate Oracle ERP supply chain data for unified visibility. |
-| Amazon S3 | Import and export supply chain data via S3 for batch processing. |
-| Amazon EventBridge | Send supply chain events to EventBridge for downstream processing. |
-| AWS IoT | Integrate IoT sensor data for real-time supply chain monitoring. |
+**Regulatory alignment 32.7** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-supply-chain/](https://apis.io/providers/amazon-supply-chain/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [amazon-supply-chain.yaml](openapi/amazon-supply-chain.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon Supply Chain: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [amazon-supply-chain-bill-of-materials-import-job-schema.json](json-schema/amazon-supply-chain-bill-of-materials-import-job-schema.json)
-- [amazon-supply-chain-data-integration-event-schema.json](json-schema/amazon-supply-chain-data-integration-event-schema.json)
-- [amazon-supply-chain-data-integration-flow-schema.json](json-schema/amazon-supply-chain-data-integration-flow-schema.json)
-- [amazon-supply-chain-data-lake-dataset-schema.json](json-schema/amazon-supply-chain-data-lake-dataset-schema.json)
-- [amazon-supply-chain-data-lake-namespace-schema.json](json-schema/amazon-supply-chain-data-lake-namespace-schema.json)
-- ... and 1 more
-
-### JSON Structure
-
-- [amazon-supply-chain-bill-of-materials-import-job-structure.json](json-structure/amazon-supply-chain-bill-of-materials-import-job-structure.json)
-- [amazon-supply-chain-data-integration-event-structure.json](json-structure/amazon-supply-chain-data-integration-event-structure.json)
-- [amazon-supply-chain-data-integration-flow-structure.json](json-structure/amazon-supply-chain-data-integration-flow-structure.json)
-- [amazon-supply-chain-data-lake-dataset-structure.json](json-structure/amazon-supply-chain-data-lake-dataset-structure.json)
-- [amazon-supply-chain-data-lake-namespace-structure.json](json-structure/amazon-supply-chain-data-lake-namespace-structure.json)
-
-### JSON-LD
-
-- [amazon-supply-chain-context.jsonld](json-ld/amazon-supply-chain-context.jsonld)
-
-### Examples
-
-- [amazon-supply-chain-bill-of-materials-import-job-example.json](examples/amazon-supply-chain-bill-of-materials-import-job-example.json)
-- [amazon-supply-chain-data-integration-event-example.json](examples/amazon-supply-chain-data-integration-event-example.json)
-- [amazon-supply-chain-data-integration-flow-example.json](examples/amazon-supply-chain-data-integration-flow-example.json)
-- [amazon-supply-chain-data-lake-dataset-example.json](examples/amazon-supply-chain-data-lake-dataset-example.json)
-- [amazon-supply-chain-data-lake-namespace-example.json](examples/amazon-supply-chain-data-lake-namespace-example.json)
-- ... and 1 more
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions.
-
-### Shared Per-API Definitions
-
-- [amazon-supply-chain.yaml](capabilities/shared/amazon-supply-chain.yaml) — AWS Supply Chain operations for supply chain management
-
-## Vocabulary
-
-- [Amazon Supply Chain Vocabulary](vocabulary/amazon-supply-chain-vocabulary.yaml) — Unified taxonomy mapping 6 resources, 6 actions, 1 workflow, and 2 personas
-
-## Rules
-
-- [Amazon Supply Chain Spectral Rules](rules/amazon-supply-chain-spectral-rules.yml) — 18 rules enforcing AWS Supply Chain API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-supply-chain/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
